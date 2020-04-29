@@ -1,19 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import axios from 'axios';
 // import logo from '../logo.svg';
 import '../App.css';
 
 class App extends React.Component {
+
+  // componentDidMount() {
+  //   axios.get('')
+  // }
+
   render () {
+    console.log(process.env);
     return (
       <Router>
         <ul>
-          <li><a href="/">Home</a></li>
+          <li><a href="/home">Home</a></li>
           <li><a href="/foo">Foo</a></li>
           <li><a href="/bar">Bar</a></li>
         </ul>
-        <Route path="/" render={() => <Home />} />
-        <Route path="/foo" render={() => <About />} />
+        <Route path="/home" render={() => <Home />} />
+        <Route path="/foo" render={() => <Foo />} />
+        <Route path="/bar" render={() => <Bar />} />
       </Router>
     )
   }
@@ -27,10 +35,18 @@ class Home extends React.Component {
   }
 }
 
-class About extends React.Component {
+class Foo extends React.Component {
   render () {
     return (
-        <h1>About</h1>
+        <h1>FOO</h1>
+    )
+  }
+}
+
+class Bar extends React.Component {
+  render () {
+    return (
+        <h1>BAR</h1>
     )
   }
 }
