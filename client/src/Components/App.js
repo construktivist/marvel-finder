@@ -11,7 +11,7 @@ class App extends React.Component {
   // }
 
   render () {
-    console.log(process.env);
+    console.log(process.env.API_KEY);
     return (
       <Router>
         <ul>
