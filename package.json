@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/construktivist/marvel-finder/issues"
   },
-  "homepage": "https://github.com/construktivist/marvel-finder#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/construktivist/marvel-finder#readme"
 }
