@@ -1,17 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 // import logo from '../logo.svg';
 import '../App.css';
 
 class App extends React.Component {
 
-  // componentDidMount() {
-  //   axios.get('')
-  // }
+componentDidMount() {
+      axios.get('/find')
+      .then(function (response) {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+}
 
   render () {
-    console.log(process.env.API_KEY);
     return (
       <Router>
         <ul>
