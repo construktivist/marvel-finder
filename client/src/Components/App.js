@@ -1,8 +1,13 @@
+// DEPENDENCIES
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 // import logo from '../logo.svg';
+
+// COMPONENTS
 import '../App.css';
+import Search from './Search';
+
 
 class App extends React.Component {
 
@@ -19,6 +24,8 @@ componentDidMount() {
   render () {
     return (
       <Router>
+        <h1>Marvel Characters List</h1>
+        <Search />
         <ul>
           <li><a href="/home">Home</a></li>
           <li><a href="/foo">Foo</a></li>
