@@ -4,13 +4,13 @@ class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        search: ''
+        search: '',
         }
     }
 
-    inputChange = (event) => {
+    handleChange = (event) => {
         this.setState({
-            [event.target.search]: event.target.value
+            [event.target.id]: event.target.value,
         })
     }
 
@@ -19,13 +19,10 @@ class Search extends React.Component {
             <form>
                 <input 
                     id="search" 
-                    name="search"
                     className="search" 
                     type="text" 
-
-                    value={this.state.search}
-                    onChange={this.inputChange} />
-                <div className="listbox" id="react-listbox" ></div>
+                    value={this.state.name}
+                    onChange={this.handleChange} />
             </form>
         )
     }
