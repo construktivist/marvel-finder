@@ -4,7 +4,10 @@
   "description": "A web app using the Marvel API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently 'npm run server' 'npm run client'",
+    "server": "node server.js",
+    "client": "cd client && npm start"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "md5": "^2.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0"
   }
 }
