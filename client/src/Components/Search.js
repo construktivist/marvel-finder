@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class Search extends React.Component {
     constructor(props) {
@@ -14,9 +15,19 @@ class Search extends React.Component {
         })
     }
 
+    handleSubmit = (event) => {
+        axios.get('/find')
+        .then(function (response) {
+        console.log(response)
+        })
+        .catch(function (error) {
+        console.log(error);
+        })
+    }
+
     render () {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input 
                     id="search" 
                     className="search" 

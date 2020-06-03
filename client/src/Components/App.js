@@ -1,7 +1,7 @@
 // DEPENDENCIES
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 // import logo from '../logo.svg';
 
 // COMPONENTS
@@ -11,15 +11,15 @@ import Search from './Search';
 
 class App extends React.Component {
 
-componentDidMount() {
-      axios.get('/find')
-      .then(function (response) {
-        console.log(response)
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-}
+// componentDidMount() {
+//       axios.get('/find')
+//       .then(function (response) {
+//         console.log(response)
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       })
+// }
 
   render () {
     return (
