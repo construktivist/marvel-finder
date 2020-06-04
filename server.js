@@ -9,6 +9,10 @@ app.get('/find', () => {
     api.marvel.find()
 })
 
+app.get('/character', (name) => {
+    api.marvel.findCharacter(name);
+})
+
 app.listen(PORT, () => {
     console.log(`App listening on PORT: ` + PORT)
 })

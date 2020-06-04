@@ -15,6 +15,18 @@ exports.marvel = {
             .catch(function (error) {
                 console.log(error);
             })
+    },
+
+    findCharacter: (characterName) => {
+        axios.get('https://gateway.marvel.com:443/v1/public/characters', {
+            params: {
+                name: characterName,
+                ts: ts,
+                apikey: process.env.PUBLIC_API_KEY,
+                hash: hash
+
+            }
+        })
     }
 
 }

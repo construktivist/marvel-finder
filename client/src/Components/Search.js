@@ -16,7 +16,8 @@ class Search extends React.Component {
     }
 
     handleSubmit = (event) => {
-        axios.get('/find')
+        console.log(this.state.search);
+        axios.get('/character', event.target.name)
         .then(function (response) {
         console.log(response)
         })
