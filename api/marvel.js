@@ -2,9 +2,11 @@ const axios = require('axios');
 const md5 = require('md5');
 require('dotenv').config()
 
+//Timestamp and Hash for API call
 const ts = Date.now();
 const hash = md5(ts + process.env.PRIVATE_API_KEY + process.env.PUBLIC_API_KEY);
 
+// Exported API calls
 exports.marvel = {
 
     find: () => {

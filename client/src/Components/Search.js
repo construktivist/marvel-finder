@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+
+// Search bar component
 class Search extends React.Component {
     constructor(props) {
         super(props);
@@ -9,12 +11,14 @@ class Search extends React.Component {
         }
     }
 
+    //Handle text field changes
     handleChange = (event) => {
         this.setState({
             [event.target.id]: event.target.value,
         })
     }
 
+    //Make API call on submit
     handleSubmit = (event) => {
         console.log(this.state.search);
         axios.get('/character', event.target.name)
