@@ -22,16 +22,23 @@ exports.marvel = {
     findCharacter: (characterName) => {
         axios.get('https://gateway.marvel.com:443/v1/public/characters', {
             params: {
-                name: characterName,
+                nameStartsWith: characterName,
                 ts: ts,
                 apikey: process.env.PUBLIC_API_KEY,
                 hash: hash
-
             }
+        })            
+        .then(function (response) {
+            const results = response.data.data.results;
+            for (let i = 0; i < results.length; i++) {
+                console.log(results[i].name);
+                console.log(results[i].id);
+                console.log(results[i].thumbnail);    
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
         })
     }
 
 }
-
-
-

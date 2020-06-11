@@ -19,7 +19,11 @@ componentDidMount() {
       //   console.log(error);
       // })
 
-      axios.get('/character')
+      axios.get('/character', {
+        params: {
+          characterName: 'deadpool',
+        }
+      })
       .then(function (response) {
       console.log(response)
       })
