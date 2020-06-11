@@ -17,10 +17,13 @@ app.get('/find', () => {
 })
 
 app.get('/character?:characterName', (req, res) => {
+    // console.log(req);
+    // console.log(req.url);
+    console.log(req.params.characterName);
+    console.log(req.query.characterName);
+    
 
-    res.send(req.params);
-
-    // console.log(characterName);
+    res.send(req.query.characterName);
     
     // api.marvel.findCharacter('deadpool');
 })

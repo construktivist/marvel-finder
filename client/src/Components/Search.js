@@ -21,13 +21,6 @@ class Search extends React.Component {
     //Make API call on submit
     handleSubmit = (event) => {
         console.log(this.state.search);
-        axios.get('/character', event.target.name)
-        .then(function (response) {
-        console.log(response)
-        })
-        .catch(function (error) {
-        console.log(error);
-        })
     }
 
     render () {
