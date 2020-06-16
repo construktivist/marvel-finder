@@ -17,37 +17,12 @@ app.get('/find', () => {
 })
 
 app.get('/character?:characterName', (req, res) => {
-    // console.log(req);
-    // console.log(req.url);
-    console.log(req.params.characterName);
-    console.log(req.query.characterName);
-    
 
-    res.send(req.query.characterName);
-    
-    // api.marvel.findCharacter('deadpool');
+    // console.log(req.params.characterName);
+    // console.log(req.query.characterName);   
+
+    api.marvel.findCharacter(req.query.characterName);
 })
-
-// axios.get('https://gateway.marvel.com:443/v1/public/characters', {
-//     params: {
-//         nameStartsWith: 'deadpool',
-//         ts: ts,
-//         apikey: process.env.PUBLIC_API_KEY,
-//         hash: hash
-//     }
-// })            
-// .then(function (response) {
-//     const results = response.data.data.results;
-//     for (let i = 0; i < results.length; i++) {
-//         console.log(results[i].name);
-//         console.log(results[i].id);
-//         console.log(results[i].thumbnail);    
-//     }
-// })
-// .catch(function (error) {
-//     console.log(error);
-// })
-
 
 //PORT listen
 const PORT = process.env.PORT || 3001;

@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
-// import logo from '../logo.svg';
+
 
 // COMPONENTS
 import '../App.css';
@@ -11,25 +11,13 @@ import Search from './Search';
 class App extends React.Component {
 
   componentDidMount() {
-        // axios.get('/find')
-        // .then(function (response) {
-        //   console.log(response)
-        // })
-        // .catch(function (error) {
-        //   console.log(error);
-        // })
-
-        axios.get('/character/', {
-          params: {
-            characterName: 'deadpool',
-          }
-        })
-        .then(function (response) {
-        console.log(response.data);
-        })
-        .catch(function (error) {
-        console.log(error);
-        })
+    axios.get('/find')
+    .then(function (response) {
+      console.log(response)
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
   }
 
   render () {
