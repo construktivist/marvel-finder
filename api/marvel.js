@@ -30,11 +30,12 @@ exports.marvel = {
         })            
         .then(function (response) {
             const results = response.data.data.results;
-            for (let i = 0; i < results.length; i++) {
-                console.log(results[i].name);
-                console.log(results[i].id);
-                console.log(results[i].thumbnail);    
-            }
+            // for (let i = 0; i < results.length; i++) {
+            //     console.log(results[i].name);
+            //     console.log(results[i].id);
+            //     console.log(results[i].thumbnail);    
+            // }
+            return results;
         })
         .catch(function (error) {
             console.log(error);

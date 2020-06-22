@@ -10,15 +10,15 @@ import Search from './Search';
 
 class App extends React.Component {
 
-  componentDidMount() {
-    axios.get('/find')
-    .then(function (response) {
-      console.log(response)
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-  }
+  // componentDidMount() {
+  //   axios.get('/find')
+  //   .then(function (response) {
+  //     console.log(response)
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   })
+  // }
 
   render () {
     return (

@@ -11,17 +11,20 @@ const ts = Date.now();
 const hash = md5(ts + process.env.PRIVATE_API_KEY + process.env.PUBLIC_API_KEY);
 const app = express();
 
+console.log(api.marvel.findCharacter('cable'));
+
 //GET requests
-app.get('/find', () => {
+app.get('/fizz', (req, res) => {
+    res.send({message: 'BUZZ'});
+})
+
+app.get('/find', (req, res) => {
     api.marvel.find();
 })
 
 app.get('/character?:characterName', (req, res) => {
-
-    // console.log(req.params.characterName);
-    // console.log(req.query.characterName);   
-
-    api.marvel.findCharacter(req.query.characterName);
+    console.log(api.marvel.findCharacter(req.query.characterName));
+    res.send(api.marvel.findCharacter(req.query.characterName));
 })
 
 //PORT listen
