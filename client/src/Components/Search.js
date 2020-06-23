@@ -20,25 +20,25 @@ class Search extends React.Component {
 
     //Make API call on submit
     handleSubmit = (event) => {
-        // console.log("EVENT")
-        // axios.get('/fizz')
-        // .then(function (response) {
-        // console.log(response.data.message);
-        // })
-        // .catch(function (error) {
-        // console.log(error);
-        // })
-        axios.get('/character', {
-            params: {
-              characterName: this.state.search,
-            }
-          })
-          .then(function (response) {
-          console.log(response);
-          })
-          .catch(function (error) {
-          console.log(error);
-          })
+        console.log("EVENT")
+        axios.get('/fizz')
+        .then(function (response) {
+        console.log(response.data.message);
+        })
+        .catch(function (error) {
+        console.log(error);
+        })
+        // axios.get('/character', {
+        //     params: {
+        //       characterName: this.state.search,
+        //     }
+        //   })
+        //   .then(function (response) {
+        //   console.log(response);
+        //   })
+        //   .catch(function (error) {
+        //   console.log(error);
+        //   })
     }
 
     render () {
