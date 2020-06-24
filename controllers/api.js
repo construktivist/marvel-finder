@@ -20,12 +20,7 @@ router.get('/character', (req, res) => {
     })
     .then(function (response) {
         const results = response.data.data.results;
-        for (let i = 0; i < results.length; i++) {
-            console.log(results[i].name);
-            console.log(results[i].id);
-            console.log(results[i].thumbnail);    
-        }
-        res.send(results.json());
+        res.send(results);
     })
     .catch(function (error) {
         console.log(error);

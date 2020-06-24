@@ -1,7 +1,6 @@
 // DEPENDENCIES
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import axios from 'axios';
 
 
 // COMPONENTS
@@ -9,16 +8,6 @@ import '../App.css';
 import Search from './Search';
 
 class App extends React.Component {
-
-  // componentDidMount() {
-  //   axios.get('/find')
-  //   .then(function (response) {
-  //     console.log(response)
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   })
-  // }
 
   render () {
     return (
