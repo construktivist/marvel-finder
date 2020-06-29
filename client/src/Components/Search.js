@@ -27,7 +27,8 @@ class Search extends React.Component {
             }
           })
           .then(function (response) {
-          console.log(response);
+          const results = response.
+          props.handleResults(results)
           })
           .catch(function (error) {
           console.log(error);

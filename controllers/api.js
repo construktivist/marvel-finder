@@ -24,6 +24,7 @@ router.get('/character', (req, res) => {
     })
     .catch(function (error) {
         console.log(error);
+        res.send(error);
     }) 
 })
 
