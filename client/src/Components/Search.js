@@ -22,17 +22,19 @@ class Search extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         axios.get('/character', {
-            params: {
-              characterName: this.state.search,
-            }
-          })
-          .then(function (response) {
-          const results = response.
-          props.handleResults(results)
-          })
-          .catch(function (error) {
-          console.log(error);
-          })
+        params: {
+            characterName: this.state.search,
+        }
+        })
+        .then(function (response) {
+            console.log(response.data);
+            
+        const results = response.data;
+        this.props.handleResults(results);
+        })
+        .catch(function (error) {
+        console.log(error);
+        })
     }
 
     render () {
