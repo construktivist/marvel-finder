@@ -12,7 +12,8 @@ class Search extends React.Component {
         }
     }
 
-    componentDidUpdate() {
+    //Called by handleSubmit to pass the api data back to App.js.
+    passResults() {
         this.props.handleResults(this.state.results)
     }
 
@@ -32,15 +33,12 @@ class Search extends React.Component {
         }
         })
         .then(function (response) {
-            console.log(response.data);
-            
-        const apiResults = response.data;
-        this.setState({
-            results: apiResults,
-        })
-        })
+            this.setState({
+                results: response.data,
+            });
+            this.passResults();
+        }.bind(this))
         .catch(function (error) {
-        console.log(error);
         })
     }
 

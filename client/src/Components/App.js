@@ -38,7 +38,7 @@ class App extends React.Component {
           <li><a href="/bar">Bar</a></li> */}
         </ul>
             <h1>Marvel Finder</h1>
-            <Search  hello={this.helloWorld.bind(this)} handleResults={this.handleResults}/>
+            <Search handleResults={this.handleResults}/>
             <Results />
         </div>
         <Route path="/home" render={() => <Home />} />
