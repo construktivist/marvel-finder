@@ -13,6 +13,7 @@ class App extends React.Component {
     super (props);
     this.state = {
       results: [],
+      text: 'world',
     }
   }
 
@@ -21,6 +22,10 @@ class App extends React.Component {
       results: newResults
     })
     console.log(this.state.results);
+  }
+
+  helloWorld = () => {
+    console.log(this.state.text);
   }
 
   render () {
@@ -33,7 +38,7 @@ class App extends React.Component {
           <li><a href="/bar">Bar</a></li> */}
         </ul>
             <h1>Marvel Finder</h1>
-            <Search  handleResults={this.handleResults}/>
+            <Search  hello={this.helloWorld.bind(this)} handleResults={this.handleResults}/>
             <Results />
         </div>
         <Route path="/home" render={() => <Home />} />

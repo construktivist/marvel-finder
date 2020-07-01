@@ -8,7 +8,12 @@ class Search extends React.Component {
         super(props);
         this.state = {
         search: '',
+        results: [],
         }
+    }
+
+    componentDidUpdate() {
+        this.props.handleResults(this.state.results)
     }
 
     //Handle text field changes
@@ -29,8 +34,10 @@ class Search extends React.Component {
         .then(function (response) {
             console.log(response.data);
             
-        const results = response.data;
-        this.props.handleResults(results);
+        const apiResults = response.data;
+        this.setState({
+            results: apiResults,
+        })
         })
         .catch(function (error) {
         console.log(error);
