@@ -6,7 +6,11 @@ class Results extends React.Component {
         return (
             <div className="row">
                 {this.props.searchResults.map((result) => 
-                <p>{result.name}</p>)}
+                <div>
+                    <p>{result.name}</p>
+                    <img src={result.thumbnail.path + "." + result.thumbnail.extension} />
+                </div>
+                )}
             </div>
         )
     }
