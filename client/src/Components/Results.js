@@ -4,7 +4,10 @@ class Results extends React.Component {
 
     render () {
         return (
-            <h3>Name: {this.props.name}</h3>
+            <div className="row">
+                {this.props.searchResults.map((result) => 
+                <p>{result.name}</p>)}
+            </div>
         )
     }
 }

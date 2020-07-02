@@ -24,10 +24,6 @@ class App extends React.Component {
     console.log(this.state.results);
   }
 
-  helloWorld = () => {
-    console.log(this.state.text);
-  }
-
   render () {
     return (
       <Router>
@@ -39,23 +35,23 @@ class App extends React.Component {
         </ul>
             <h1>Marvel Finder</h1>
             <Search handleResults={this.handleResults}/>
-            <Results />
+            <Results searchResults={this.state.results}/>
         </div>
-        <Route path="/home" render={() => <Home />} />
-        {/* <Route path="/foo" render={() => <Foo />} />
-        <Route path="/bar" render={() => <Bar />} /> */}
+        {/* <Route path="/home" render={() => <Home />} /> */}
+        {/* <Route path="/foo" render={() => <Foo />} /> */}
+        {/* <Route path="/bar" render={() => <Bar />} /> */}
       </Router>
     )
   }
 }
 
-class Home extends React.Component {
-  render () {
-    return (
-      <h1>Hello World</h1>
-    )
-  }
-}
+// class Home extends React.Component {
+//   render () {
+//     return (
+//       <h1>Hello World</h1>
+//     )
+//   }
+// }
 
 // class Foo extends React.Component {
 //   render () {
