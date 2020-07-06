@@ -2,6 +2,7 @@ import React from 'react';
 
 import Profile from './Profile';
 
+// Takes api data from App.js and sends it to the appropriate component.
 class Results extends React.Component {
 
     render () {

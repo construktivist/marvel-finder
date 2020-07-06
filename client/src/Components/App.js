@@ -17,6 +17,7 @@ class App extends React.Component {
     }
   }
 
+  //This function passes api data from Search.js to App.js
   handleResults = (newResults) => {  
     this.setState({
       results: newResults
@@ -30,16 +31,13 @@ class App extends React.Component {
         <div className="header">
         <ul>
           <li><a href="/home">Home</a></li>
-          {/* <li><a href="/foo">Foo</a></li>
-          <li><a href="/bar">Bar</a></li> */}
+
         </ul>
             <h1>Marvel Finder</h1>
             <Search handleResults={this.handleResults}/>
             <Results searchResults={this.state.results}/>
         </div>
         {/* <Route path="/home" render={() => <Home />} /> */}
-        {/* <Route path="/foo" render={() => <Foo />} /> */}
-        {/* <Route path="/bar" render={() => <Bar />} /> */}
       </Router>
     )
   }
@@ -53,20 +51,5 @@ class App extends React.Component {
 //   }
 // }
 
-// class Foo extends React.Component {
-//   render () {
-//     return (
-//         <h1>FOO</h1>
-//     )
-//   }
-// }
-
-// class Bar extends React.Component {
-//   render () {
-//     return (
-//         <h1>BAR</h1>
-//     )
-//   }
-// }
 
 export default App;

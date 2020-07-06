@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Displays an overview for Marvel Character profile. 
 class Profile extends React.Component {
     render () {
         return (

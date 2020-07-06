@@ -8,7 +8,7 @@ require('dotenv').config()
 const ts = Date.now();
 const hash = md5(ts + process.env.PRIVATE_API_KEY + process.env.PUBLIC_API_KEY);
 
-
+// Queries Marvel api for characters matching the name paremeter.
 router.get('/character', (req, res) => {
     axios.get('https://gateway.marvel.com:443/v1/public/characters', {
         params: {
