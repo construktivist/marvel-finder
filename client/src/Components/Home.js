@@ -3,8 +3,7 @@ import React from 'react'
 class Home extends React.Component {
     render () {
         return (  
-                <h1>Welcome to Marvel Finder</h1>
-
+            <h1>Welcome to Marvel Finder</h1>
         )
     }
 }

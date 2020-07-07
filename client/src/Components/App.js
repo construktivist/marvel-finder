@@ -29,15 +29,12 @@ class App extends React.Component {
   render () {
     return (
       <Router>
-        <Switch>
-          <Route path="/" element={<Home />} />
-        </Switch>
         <div className="container">
-          <Link to="/">Home</Link>
-          {/* <Nav /> */}
-          {/* <Results searchResults={this.state.results}/> */}
+          <Nav />
+          <Route path="/home" render={() => <Home />} />
         </div>
       </Router>
+
     )
   }
 }
@@ -48,9 +45,9 @@ class Nav extends React.Component {
       <div className="row">
           <nav>
             <h1>Marvel Finder</h1>
-            <Link to="/">Home</Link>
-            <Link to="featured">Featured</Link>
-            <Link to="random">Random</Link>
+            <Link to="/home">Home</Link>
+            <Link to="/featured">Featured</Link>
+            <Link to="/random">Random</Link>
           </nav>
           <Search handleResults={this.handleResults}/>
       </div>
