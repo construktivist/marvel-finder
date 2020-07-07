@@ -1,10 +1,11 @@
 // DEPENDENCIES
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 
 // COMPONENTS
 import '../Styles/App.css';
+import Home from './Home';
 import Search from './Search';
 import Results from './Results';
 
@@ -28,28 +29,34 @@ class App extends React.Component {
   render () {
     return (
       <Router>
-        <div className="header">
-        <ul>
-          <li><a href="/home">Home</a></li>
-
-        </ul>
-            <h1>Marvel Finder</h1>
-            <Search handleResults={this.handleResults}/>
-            <Results searchResults={this.state.results}/>
+        <Switch>
+          <Route path="/" element={<Home />} />
+        </Switch>
+        <div className="container">
+          <Link to="/">Home</Link>
+          {/* <Nav /> */}
+          {/* <Results searchResults={this.state.results}/> */}
         </div>
-        {/* <Route path="/home" render={() => <Home />} /> */}
       </Router>
     )
   }
 }
 
-// class Home extends React.Component {
-//   render () {
-//     return (
-//       <h1>Hello World</h1>
-//     )
-//   }
-// }
+class Nav extends React.Component {
+  render () {
+    return (
+      <div className="row">
+          <nav>
+            <h1>Marvel Finder</h1>
+            <Link to="/">Home</Link>
+            <Link to="featured">Featured</Link>
+            <Link to="random">Random</Link>
+          </nav>
+          <Search handleResults={this.handleResults}/>
+      </div>
+    )
+  }
+}
 
 
 export default App;

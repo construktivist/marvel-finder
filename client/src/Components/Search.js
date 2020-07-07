@@ -44,14 +44,14 @@ class Search extends React.Component {
 
     render () {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input 
-                    id="search" 
-                    className="search" 
-                    type="text" 
-                    value={this.state.name}
-                    onChange={this.handleChange} />
-            </form>
+                <form onSubmit={this.handleSubmit}>
+                    <input 
+                        id="search" 
+                        className="search" 
+                        type="text" 
+                        value={this.state.name}
+                        onChange={this.handleChange} />
+                </form>
         )
     }
 }
