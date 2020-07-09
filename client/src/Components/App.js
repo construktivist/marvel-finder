@@ -1,6 +1,6 @@
 // DEPENDENCIES
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
 // COMPONENTS
@@ -31,10 +31,11 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <Nav />
+          <Search handleResults={this.handleResults}/>
           <Route path="/home" render={() => <Home />} />
+          <Results searchResults={this.state.results} />
         </div>
       </Router>
-
     )
   }
 }
@@ -49,7 +50,6 @@ class Nav extends React.Component {
             <Link to="/featured">Featured</Link>
             <Link to="/random">Random</Link>
           </nav>
-          <Search handleResults={this.handleResults}/>
       </div>
     )
   }
