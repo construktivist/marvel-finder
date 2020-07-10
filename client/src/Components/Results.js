@@ -7,7 +7,7 @@ class Results extends React.Component {
 
     render () {
         return (
-            <div className="row">
+            <div className="results">
                 {this.props.searchResults.map((result) => 
                     <Profile 
                         key={result.id} 
