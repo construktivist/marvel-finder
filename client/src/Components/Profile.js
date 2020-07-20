@@ -5,15 +5,16 @@ import '../Styles/Profile.css';
 class Profile extends React.Component {
     render () {
         return (
-            <div className=" profile row">
-                <div className="image-wrapper col-xs-6">
-                    <img src={this.props.thumbnail} alt={this.props.name + " Profile Image"}/>
-                </div>
-                <div className=" info-wrapper col-xs-6">
-                    <h2>{this.props.name}</h2>
-                    <h4>ID: {this.props.id}</h4>
-                    <a href={this.props.profile_url} target="_blank" rel="noopener noreferrer">Marvel Profile</a>
-                </div>
+            <div className="profile col-xs-2">
+                <a href={this.props.profile_url} target="_blank" rel="noopener noreferrer">
+                    <div className="image-wrapper">
+                        <img src={this.props.thumbnail} alt={this.props.name + " Profile Image"}/>
+                    </div>
+                    <div className=" info-wrapper">
+                        <h5>{this.props.name}</h5>
+                        <h6>Marvel ID: {this.props.id}</h6>
+                    </div>
+                </a>    
             </div>
         )
     }

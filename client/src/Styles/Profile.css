@@ -1,12 +1,33 @@
 
-.profile.row {
+.profile {
     margin: 10px;
+    background-color: rgb(37, 37, 37);
+    color: white;
+    width: 300px;
 }
 
-.image-wrapper {
-    margin-right: 15px;
+a {
+    text-decoration: none;
+    color: white;
 }
 
 img {
-    width: 150px;
+    width: 100%;
+}
+
+.info-wrapper {
+    padding: 20px;
+}
+
+h5, h6 {
+    text-decoration: none;
+    color: white;
+}
+
+h5 {
+    font-size: 1.1rem;
+}
+
+h6 {
+    font-size: 0.5rem;
 }
