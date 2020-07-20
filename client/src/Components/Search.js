@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import '../Styles/Search.css';
 
 
 // Search bar component
@@ -44,14 +45,19 @@ class Search extends React.Component {
 
     render () {
         return (
-                <form onSubmit={this.handleSubmit}>
-                    <input 
-                        id="search" 
-                        className="search" 
-                        type="text" 
-                        value={this.state.name}
-                        onChange={this.handleChange} />
-                </form>
+                <div className="row w-50">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="searchbox">
+                            <i className="fas fa-search col-xs-2"></i> 
+                            <input 
+                                id="search" 
+                                className="search col-xs-10" 
+                                type="text" 
+                                value={this.state.name}
+                                onChange={this.handleChange} />
+                        </div>
+                    </form>
+                </div>
         )
     }
 }

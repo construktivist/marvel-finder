@@ -1,0 +1,23 @@
+form {
+    width: 100%;
+}
+
+.searchbox {
+    border: 0.5px solid black;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.search {
+    border: none;
+    width: 93%;
+    font-size: 2.2rem;
+    font-family: 'RobotoCondensed', 'Helvetica', 'sans-serif';
+}
+
+i.fa-search{
+   font-size: 1.8rem;
+   display: inline-block;
+   margin-right: 10px;
+}
