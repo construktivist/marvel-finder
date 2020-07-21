@@ -5,7 +5,7 @@ import '../Styles/Profile.css';
 class Profile extends React.Component {
     render () {
         return (
-            <div className="profile col-xs-2">
+            <div className="profile expand col-xs-2">
                 <a href={this.props.profile_url} target="_blank" rel="noopener noreferrer">
                     <div className="image-wrapper">
                         <img src={this.props.thumbnail} alt={this.props.name + " Profile Image"}/>
