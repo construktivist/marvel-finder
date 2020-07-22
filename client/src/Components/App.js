@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 // COMPONENTS
 import '../Styles/App.css';
-import Home from './Home';
+import Comics from './Comics';
+import Characters from './Characters';
 import Search from './Search';
 import Results from './Results';
 
@@ -13,8 +14,8 @@ class App extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
+      searchType: '',
       results: [],
-      text: 'world',
     }
   }
 
@@ -26,14 +27,22 @@ class App extends React.Component {
     console.log(this.state.results);
   }
 
+  setSearchType = (newSearchType) => {
+    this.setState({
+      searchType: newSearchType
+    })
+    console.log(this.state.searchType)
+  }
+
   render () {
     return (
       <Router>
         <div className="container">
           <Nav />
           <Search handleResults={this.handleResults}/>
-          <Route path="/home" render={() => <Home />} />
-          <Results searchResults={this.state.results} />
+          <Route path="/characters" render={(props) => <Characters setSearchType={this.setSearchType} />} />
+          <Route path="/comics" render={(props) => <Comics setSearchType={this.setSearchType} />} />
+          <Results searchType={this.state.searchType} searchResults={this.state.results} />
         </div>
       </Router>
     )
@@ -46,9 +55,8 @@ class Nav extends React.Component {
       <div className="row">
           <nav>
             <h1>Marvel Finder</h1>
-            <Link to="/home">Home</Link>
-            <Link to="/featured">Featured</Link>
-            <Link to="/random">Random</Link>
+            <Link to="/characters">Characters</Link>
+            <Link to="/comics">Featured</Link>
           </nav>
       </div>
     )
