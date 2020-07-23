@@ -1,10 +1,17 @@
 import React from 'react';
-import Search from './Search';
 
 class Comics extends React.Component {
     
     componentDidMount () {
         this.props.setSearchType('comic')
+    }
+
+    render () {
+        return (
+            <div className="row">
+                <h2>Comics</h2>
+            </div>
+        )
     }
 }
 

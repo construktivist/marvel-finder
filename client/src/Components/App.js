@@ -39,10 +39,10 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <Nav />
-          <Search handleResults={this.handleResults}/>
+          <Search searchType={this.state.searchType} handleResults={this.handleResults}/>
           <Route path="/characters" render={(props) => <Characters setSearchType={this.setSearchType} />} />
           <Route path="/comics" render={(props) => <Comics setSearchType={this.setSearchType} />} />
-          <Results searchType={this.state.searchType} searchResults={this.state.results} />
+          <Results searchResults={this.state.results} />
         </div>
       </Router>
     )
@@ -56,7 +56,7 @@ class Nav extends React.Component {
           <nav>
             <h1>Marvel Finder</h1>
             <Link to="/characters">Characters</Link>
-            <Link to="/comics">Featured</Link>
+            <Link to="/comics">Comics</Link>
           </nav>
       </div>
     )

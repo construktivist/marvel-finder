@@ -8,7 +8,6 @@ class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        searchType: '',
         search: '',
         results: [],
         }
@@ -19,29 +18,54 @@ class Search extends React.Component {
         this.props.handleResults(this.state.results)
     }
 
+    find = (searchType) => {
+
+        if (searchType === 'character') {
+            axios.get('/character', {
+                params: {
+                    characterName: this.state.search,
+                }
+                })
+                .then(function (response) {
+                    this.setState({
+                        results: response.data,
+                    });
+                    this.passResults();
+                }.bind(this))
+                .catch(function (error) {
+                })
+        }
+        else if (searchType === 'comics') {
+            axios.get('/character', {
+                params: {
+                    characterName: this.state.search,
+                }
+                })
+                .then(function (response) {
+                    this.setState({
+                        results: response.data,
+                    });
+                    this.passResults();
+                }.bind(this))
+                .catch(function (error) {
+                })
+        }
+        else {
+            console.log('ERROR: searchType does not match comics or characters');
+        }
+    }
+
     //Handle text field changes
-    handleChange = (event) => {
+    handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value,
         })
     }
 
     //Make API call on submit
-    handleSubmit = (event) => {
+    handleSubmit = event => {
         event.preventDefault();
-        axios.get('/character', {
-        params: {
-            characterName: this.state.search,
-        }
-        })
-        .then(function (response) {
-            this.setState({
-                results: response.data,
-            });
-            this.passResults();
-        }.bind(this))
-        .catch(function (error) {
-        })
+        this.find(this.props.searchType);
     }
 
     render () {
