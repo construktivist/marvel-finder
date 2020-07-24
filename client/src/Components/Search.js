@@ -20,6 +20,7 @@ class Search extends React.Component {
         })
     }
 
+    //Used by find() below to perform the specific GET request.
     request = (type, params) => {
         axios.get(type, params)
         .then(response => {
@@ -33,7 +34,7 @@ class Search extends React.Component {
         })
     }
 
-    //Performs the GET request based on the searchType set by App.js
+    //Performs the specific GET request using request() based on the searchType set by App.js
     find = (searchType) => {
 
         if (searchType === 'character') {
@@ -43,7 +44,7 @@ class Search extends React.Component {
                     }
             });        
         }
-        else if (searchType === 'comics') {
+        else if (searchType === 'comic') {
             this.request('/comics', {
                 params: {
                     titleStartsWith: this.state.search,
