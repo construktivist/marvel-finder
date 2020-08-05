@@ -42,7 +42,7 @@ class App extends React.Component {
           <Search searchType={this.state.searchType} handleResults={this.handleResults}/>
           <Route path="/characters" render={(props) => <Characters setSearchType={this.setSearchType} />} />
           <Route path="/comics" render={(props) => <Comics setSearchType={this.setSearchType} />} />
-          <Results searchResults={this.state.results} />
+          <Results searchType={this.state.searchType} searchResults={this.state.results} />
         </div>
       </Router>
     )
