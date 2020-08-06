@@ -28,6 +28,10 @@ class Results extends React.Component {
                     {this.props.searchResults.map((result) => 
                         <Cover
                             key={result.id}
+                            id={result.id}
+                            title={result.title}
+                            authors= {result.creators.items}
+                            issueNumber={result.issueNumber}
                             thumbnail={result.thumbnail.path + '.' + result.thumbnail.extension} 
                             />
                     )}
