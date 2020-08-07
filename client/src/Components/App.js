@@ -14,7 +14,7 @@ class App extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      searchType: '',
+      searchType: 'character',
       results: [],
     }
   }
@@ -26,7 +26,8 @@ class App extends React.Component {
     })
     console.log(this.state.results);
   }
-
+ 
+  //This function sets the searchType state based on what component the user has mounted.
   setSearchType = (newSearchType) => {
     this.setState({
       searchType: newSearchType
@@ -40,8 +41,8 @@ class App extends React.Component {
         <div className="container">
           <Nav />
           <Search searchType={this.state.searchType} handleResults={this.handleResults}/>
-          <Route path="/characters" render={(props) => <Characters setSearchType={this.setSearchType} />} />
-          <Route path="/comics" render={(props) => <Comics setSearchType={this.setSearchType} />} />
+          <Route path="/characters" render={(props) => <Characters setSearchType={this.setSearchType} handleResults={this.handleResults} />} />
+          <Route path="/comics" render={(props) => <Comics setSearchType={this.setSearchType} handleResults={this.handleResults} />} />
           <Results searchType={this.state.searchType} searchResults={this.state.results} />
         </div>
       </Router>

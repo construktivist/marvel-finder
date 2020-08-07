@@ -4,6 +4,7 @@ class Characters extends React.Component {
     
     componentDidMount () {
         this.props.setSearchType('character')
+        this.props.handleResults([])
     }
 
     render () {
