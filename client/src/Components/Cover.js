@@ -4,6 +4,7 @@ import '../Styles/Cover.css';
 // Displays an overview for Marvel Character profile. 
 class Cover extends React.Component {
     render () {
+        console.log(this.props.urls)
         return (
             <div className="cover expand col-xs-2">
                 <a href="#" target="_blank" rel="noopener noreferrer">
