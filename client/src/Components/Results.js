@@ -30,6 +30,7 @@ class Results extends React.Component {
                             key={result.id}
                             id={result.id}
                             title={result.title}
+                            url={result.urls[0].url}
                             authors= {result.creators.items}
                             issueNumber={result.issueNumber}
                             thumbnail={result.thumbnail.path + '.' + result.thumbnail.extension} 

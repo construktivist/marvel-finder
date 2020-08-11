@@ -3,7 +3,7 @@
     margin: 10px;
     background-color: rgb(37, 37, 37);
     color: white;
-    width: 200px;
+    width: 290px;
 }
 
 .cover:hover {
@@ -36,6 +36,7 @@
 
 img {
     width: 100%;
+    height: 100%;
 }
 
 h5 {

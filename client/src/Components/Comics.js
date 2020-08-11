@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../Styles/Global.css'
+
 class Comics extends React.Component {
     
     componentDidMount () {
@@ -9,7 +11,7 @@ class Comics extends React.Component {
 
     render () {
         return (
-            <div className="row">
+            <div className="row global-margin">
                 <h2>Comics</h2>
             </div>
         )
