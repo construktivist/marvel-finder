@@ -7,7 +7,7 @@ import Cover from './Cover';
 class Results extends React.Component {
 
     render () {
-        if (this.props.searchType === 'character') {
+        if (this.props.searchType === 'character' && typeof this.props.searchResults === 'object') {
             return (
                 <div className="results row">
                     {this.props.searchResults.map((result) => 
@@ -22,7 +22,7 @@ class Results extends React.Component {
                 </div>
             )
         }
-        else {
+        else if (this.props.searchType === 'comic' && typeof this.props.searchResults === 'object') {
             return (
                 <div className="results row">
                     {this.props.searchResults.map((result) => 
@@ -36,6 +36,15 @@ class Results extends React.Component {
                             thumbnail={result.thumbnail.path + '.' + result.thumbnail.extension} 
                             />
                     )}
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className="results row">
+                    <h3>
+                        {this.props.searchResults}
+                    </h3>
                 </div>
             )
         }

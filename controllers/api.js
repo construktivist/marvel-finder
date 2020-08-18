@@ -21,7 +21,8 @@ router.get('/character', (req, res) => {
         }
     })
     .then(function (response) {
-        const results = response.data.data.results;
+        let results;
+        response.data.data.results.length > 0 ? results = response.data.data.results : results = 'Sorry! No search results were found.'
         res.send(results);
     })
     .catch(function (error) {
@@ -30,6 +31,7 @@ router.get('/character', (req, res) => {
     }) 
 })
 
+// Queries Marvel api for comics matching the titleStartsWith paremeter.
 router.get('/comics', (req, res) => {
     axios.get(baseURL + 'comics', {
         params: {
@@ -40,7 +42,9 @@ router.get('/comics', (req, res) => {
         }
     })
     .then(function (response) {
-        const results = response.data.data.results;
+        let results;
+        // console.log(response.data.data.results)
+        response.data.data.results.length > 0 ? results = response.data.data.results : results = 'Sorry! No search results were found.'
         res.send(results);
     })
     .catch(function (error) {
