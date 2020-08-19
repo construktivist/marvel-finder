@@ -4,12 +4,8 @@ const marvel_api = require('./controllers/api')
 
 const app = express();
 
-
 //API requests
-
 app.use('/', marvel_api)
-app.use('/character', marvel_api)
-app.use('/fizz', marvel_api)
 
 //PORT listen
 const PORT = process.env.PORT || 3001;

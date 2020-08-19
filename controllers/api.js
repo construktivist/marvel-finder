@@ -42,9 +42,7 @@ router.get('/comics', (req, res) => {
         }
     })
     .then(function (response) {
-        let results;
-        // console.log(response.data.data.results)
-        response.data.data.results.length > 0 ? results = response.data.data.results : results = 'Sorry! No search results were found.'
+        const results = response.data.data.results
         res.send(results);
     })
     .catch(function (error) {
@@ -53,6 +51,7 @@ router.get('/comics', (req, res) => {
     }) 
 })
 
+// Test for debugging.
 router.get('/test', (req, res) => {
     console.log('LOG: Test log worked');
     res.send({message: 'Test request received.'});
