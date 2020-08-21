@@ -8,9 +8,13 @@ class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        search: '',
+        search: 'thor',
         results: [],
         }
+    }
+
+    componentDidMount () {
+        this.find(this.props.searchType);
     }
 
     //Handle text field changes for search input
