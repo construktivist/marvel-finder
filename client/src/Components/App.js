@@ -14,7 +14,7 @@ class App extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      searchTerm: 'thor',
+      searchTerm: '',
       searchType: 'character',
       results: [],
     }
@@ -84,8 +84,8 @@ class App extends React.Component {
         <div className="container">
           <Nav />
           <Search searchType={this.state.searchType} handleResults={this.handleResults} find={this.find}/>
-          <Route path="/characters" render={(props) => <Characters setSearchType={this.setSearchType} handleResults={this.handleResults} />} />
-          <Route path="/comics" render={(props) => <Comics setSearchType={this.setSearchType} handleResults={this.handleResults} />} />
+          <Route path="/characters" render={(props) => <Characters setSearchType={this.setSearchType} find={this.find} />} />
+          <Route path="/comics" render={(props) => <Comics setSearchType={this.setSearchType} find={this.find} />} />
           <Results searchType={this.state.searchType} searchResults={this.state.results} />
         </div>
       </Router>
