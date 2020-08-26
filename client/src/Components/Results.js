@@ -45,9 +45,9 @@ class Results extends React.Component {
         else {
             return (
                 <div className="results row">
-                    <h3>
+                    {/* <h3>
                         Sorry! No results were found.
-                    </h3>
+                    </h3> */}
                 </div>
             )
         }

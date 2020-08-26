@@ -6,7 +6,8 @@ class Comics extends React.Component {
     
     componentDidMount () {
         this.props.setSearchType('comic')
-        // this.props.find('captain marvel');
+        this.props.handleResults([])
+        this.props.find(this.props.searchTerm);
     }
 
     render () {

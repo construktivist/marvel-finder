@@ -6,7 +6,8 @@ class Characters extends React.Component {
     
     componentDidMount () {
         this.props.setSearchType('character')
-        // this.props.find('cable');
+        this.props.handleResults([])
+        this.props.find(this.props.searchTerm);
     }
 
     render () {

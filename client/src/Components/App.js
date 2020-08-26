@@ -30,18 +30,21 @@ class App extends React.Component {
 
   //Performs the specific GET request using request() based on the searchType set by App.js
   find = (newSearchTerm) => {
-
     this.setState({
       searchTerm: newSearchTerm
-    })
+    }, () => {
+      this.search()
+    });
     console.log(this.state.searchTerm);
+  }
 
+  search = () => {
     if (this.state.searchType === 'character') {
-        this.request('/character', {
-                params: {
-                    characterName: this.state.searchTerm,
-                }
-        });        
+      this.request('/character', {
+              params: {
+                  characterName: this.state.searchTerm,
+              }
+      });        
     }
     else if (this.state.searchType === 'comic') {
         this.request('/comics', {
@@ -70,12 +73,12 @@ class App extends React.Component {
   }
 
   //This function passes api data from Search.js to App.js
-  // handleResults = (newResults) => {  
-  //   this.setState({
-  //     results: newResults
-  //   })
-  //   console.log(this.state.results);
-  // }
+  handleResults = (newResults) => {  
+    this.setState({
+      results: newResults
+    })
+    console.log(this.state.results);
+  }
  
 
   render () {
@@ -83,10 +86,36 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <Nav />
-          <Search searchType={this.state.searchType} handleResults={this.handleResults} find={this.find}/>
-          <Route path="/characters" render={(props) => <Characters setSearchType={this.setSearchType} find={this.find} />} />
-          <Route path="/comics" render={(props) => <Comics setSearchType={this.setSearchType} find={this.find} />} />
-          <Results searchType={this.state.searchType} searchResults={this.state.results} />
+
+          <Search 
+            searchType={this.state.searchType} 
+            handleResults={this.handleResults} 
+            find={this.find}
+          />
+
+          <Route path="/characters" render={(props) => 
+            <Characters 
+                setSearchType={this.setSearchType}
+                searchTerm={this.state.searchTerm} 
+                find={this.find} 
+                handleResults={this.handleResults}                 
+            />}
+          />
+
+          <Route path="/comics" render={(props) => 
+            <Comics 
+              setSearchType={this.setSearchType}
+              searchTerm={this.state.searchTerm}  
+              find={this.find} 
+              handleResults={this.handleResults}
+            />}
+          />
+
+          <Results 
+            searchType={this.state.searchType} 
+            searchResults={this.state.results} 
+          />
+
         </div>
       </Router>
     )
