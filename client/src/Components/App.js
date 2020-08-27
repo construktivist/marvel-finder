@@ -65,7 +65,7 @@ class App extends React.Component {
         this.setState({
             results: response.data,
         });
-        // this.passResults();
+        console.log(response.data)
     })
     .catch(error => {
         console.log('ERROR: ' + error)

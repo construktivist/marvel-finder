@@ -8,7 +8,7 @@ class Results extends React.Component {
 
     render () {
         // Renders Profile component if the searchType is equal to character
-        if (this.props.searchType === 'character' && this.props.searchResults.length > 0) {
+        if (this.props.searchType === 'character' && typeof this.props.searchResults === 'object') {
             return (
                 <div className="results row">
                     {this.props.searchResults.map((result) => 
@@ -24,7 +24,7 @@ class Results extends React.Component {
             )
         }
         // Renders Cover component if the searchType is equal to comic
-        else if (this.props.searchType === 'comic' && this.props.searchResults.length > 0) {
+        else if (this.props.searchType === 'comic' && typeof this.props.searchResults === 'object') {
             return (
                 <div className="results row">
                     {this.props.searchResults.map((result) => 
@@ -45,9 +45,9 @@ class Results extends React.Component {
         else {
             return (
                 <div className="results row">
-                    {/* <h3>
-                        Sorry! No results were found.
-                    </h3> */}
+                    <h3>
+                        {this.props.searchResults}
+                    </h3>
                 </div>
             )
         }
