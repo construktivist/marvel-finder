@@ -45,7 +45,7 @@ class Results extends React.Component {
         else {
             return (
                 <div className="results row">
-                    <h3>
+                    <h3 className="sorry">
                         {this.props.searchResults}
                     </h3>
                 </div>

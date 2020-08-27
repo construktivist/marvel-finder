@@ -14,10 +14,15 @@ class App extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
+      featured: 'thor',
       searchTerm: '',
       searchType: 'character',
-      results: [],
+      results: '',
     }
+  }
+
+  componentDidMount () {
+    this.find(this.state.featured);
   }
 
   //This function sets the searchType state based on what component the user has mounted.
@@ -38,6 +43,7 @@ class App extends React.Component {
     console.log(this.state.searchTerm);
   }
 
+  //Performs the specific GET request using request() based on the searchType and searchTerm.
   search = () => {
     if (this.state.searchType === 'character') {
       this.request('/character', {
