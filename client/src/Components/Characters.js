@@ -4,6 +4,7 @@ import '../Styles/Global.css'
 
 class Characters extends React.Component {
     
+    //Component will set search type to character then clear the existing results and then run another search using the currect search term.
     componentDidMount () {
         this.props.setSearchType('character')
         this.props.handleResults([])

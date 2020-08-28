@@ -21,6 +21,7 @@ class App extends React.Component {
     }
   }
 
+  //Component will search for the featured hero after mounting.
   componentDidMount () {
     this.find(this.state.featured);
   }
