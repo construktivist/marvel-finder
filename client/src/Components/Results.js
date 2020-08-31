@@ -2,6 +2,7 @@ import React from 'react';
 
 import Profile from './Profile';
 import Cover from './Cover';
+import Modal from './Modal';
 
 // Takes api data from App.js and sends it to the appropriate component.
 class Results extends React.Component {
@@ -18,8 +19,9 @@ class Results extends React.Component {
                             name={result.name}
                             thumbnail={result.thumbnail.path + '.' + result.thumbnail.extension} 
                             profile_url={result.urls[1].url}
-                            />
+                        />
                     )}
+                    <Modal />
                 </div>
             )
         }
