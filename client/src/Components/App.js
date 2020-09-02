@@ -73,6 +73,7 @@ class App extends React.Component {
             results: response.data,
         });
         console.log(response.data)
+        console.log(response.data[0]);
     })
     .catch(error => {
         console.log('ERROR: ' + error)

@@ -18,7 +18,9 @@ class Profile extends React.Component {
                 <Modal 
                     key={this.props.id}
                     id={this.props.id}
+                    marvel_id={this.props.marvel_id}
                     name={this.props.name}
+                    description={this.props.description}
                     profile_url={this.props.profile_url}
                 />  
             </div>

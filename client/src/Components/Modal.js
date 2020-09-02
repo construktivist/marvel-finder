@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 
 class Modal extends React.Component {
@@ -14,9 +15,11 @@ class Modal extends React.Component {
                         </button>
                     </div>
                     <div className="modal-body">
-                        {this.props.name}
-                        {this.props.id}
-                        {this.props.profile_url}
+                        <p>Marvel ID: {this.props.marvel_id}</p>
+                        <p>{this.props.description}</p>
+                        <a href={this.props.profile_url} target="_blank">Marvel.com</a>
+                        <br />
+                        <Link to="/comics">Comics</Link>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>

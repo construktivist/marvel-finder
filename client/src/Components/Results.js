@@ -17,6 +17,7 @@ class Results extends React.Component {
                             id={result.name.replace(/[^A-Za-z]/g, '')}
                             marvel_id={result.id} 
                             name={result.name}
+                            description={result.description}
                             thumbnail={result.thumbnail.path + '.' + result.thumbnail.extension} 
                             profile_url={result.urls[1].url}
                         />
