@@ -32,7 +32,8 @@ class Results extends React.Component {
                     {this.props.searchResults.map((result) => 
                         <Cover
                             key={result.id}
-                            id={result.id}
+                            id={result.title.replace(/[^A-Za-z]/g, '')}
+                            marvel_id={result.id}
                             title={result.title}
                             url={result.urls[0].url}
                             authors= {result.creators.items}
