@@ -3,6 +3,28 @@ import { Link } from 'react-router-dom'
 
 
 class Modal extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            link: '/comics',
+            label: 'Comics'
+        }
+    }
+
+    componentDidMount () {
+        if (this.props.searchType == 'comic') {
+            const newLink = '/characters';
+            const newLabel = 'Character';
+            this.setState({
+                link: newLink,
+                label: newLabel
+            })
+        }
+        else {
+            return;
+        }
+    }
+
     render () {
         return (
             <div className="modal fade" id={this.props.id} tabIndex="-1" role="dialog" aria-labelledby={this.props.id}>
@@ -17,9 +39,9 @@ class Modal extends React.Component {
                     <div className="modal-body">
                         <p>Marvel ID: {this.props.marvel_id}</p>
                         <p>{this.props.description}</p>
-                        <a href={this.props.profile_url} target="_blank">Marvel.com</a>
+                        <a href={this.props.url} target="_blank">Marvel.com</a>
                         <br />
-                        <Link to="/comics">Comics</Link>
+                        <Link to={this.state.link}>{this.state.label}</Link>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>

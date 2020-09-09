@@ -19,7 +19,8 @@ class Results extends React.Component {
                             name={result.name}
                             description={result.description}
                             thumbnail={result.thumbnail.path + '.' + result.thumbnail.extension} 
-                            profile_url={result.urls[1].url}
+                            url={result.urls[1].url}
+                            searchType={this.props.searchType}
                         />
                     )}
                 </div>
@@ -38,7 +39,8 @@ class Results extends React.Component {
                             url={result.urls[0].url}
                             authors= {result.creators.items}
                             issueNumber={result.issueNumber}
-                            thumbnail={result.thumbnail.path + '.' + result.thumbnail.extension} 
+                            thumbnail={result.thumbnail.path + '.' + result.thumbnail.extension}
+                            searchType={this.props.searchType} 
                             />
                     )}
                 </div>

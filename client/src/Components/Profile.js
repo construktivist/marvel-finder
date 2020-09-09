@@ -21,7 +21,8 @@ class Profile extends React.Component {
                     marvel_id={this.props.marvel_id}
                     name={this.props.name}
                     description={this.props.description}
-                    profile_url={this.props.profile_url}
+                    url={this.props.url}
+                    searchType={this.props.searchType}
                 />  
             </div>
         )
