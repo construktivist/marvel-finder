@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from "jquery";
 import { Link } from 'react-router-dom'
 
 
@@ -12,6 +13,9 @@ class Modal extends React.Component {
     }
 
     componentDidMount () {
+        $('.modal-backdrop').remove();
+        $('body').removeClass('modal-open');
+
         if (this.props.searchType == 'comic') {
             const newLink = '/characters';
             const newLabel = 'Character';
