@@ -13,9 +13,11 @@ class Modal extends React.Component {
     }
 
     componentDidMount () {
+        //Removes the modal backdrop when switching between Profile and Cover.
         $('.modal-backdrop').remove();
         $('body').removeClass('modal-open');
 
+        //Updates this state so the Link 'to' and 'label' rendered below in the modal.
         if (this.props.searchType == 'comic') {
             const newLink = '/characters';
             const newLabel = 'Character';
@@ -43,6 +45,12 @@ class Modal extends React.Component {
                     <div className="modal-body">
                         <p>Marvel ID: {this.props.marvel_id}</p>
                         <p>{this.props.description}</p>
+                        {this.props.creators.map(creator => 
+                        <div className="creator">
+                            <p className="role">{creator.role}</p>
+                            <p className="name">{creator.name}</p>
+                        </div>    
+                        )}
                         <a href={this.props.url} target="_blank">Marvel.com</a>
                         <br />
                         <Link to={this.state.link}>{this.state.label}</Link>

@@ -17,7 +17,7 @@ class Cover extends React.Component {
                             id={this.props.id}
                             marvel_id={this.props.marvel_id}
                             name={this.props.title}
-                            description={this.props.description}
+                            creators={this.props.creators}
                             url={this.props.url}
                             searchType={this.props.searchType}
                         /> 

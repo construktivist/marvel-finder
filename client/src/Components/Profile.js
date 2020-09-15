@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
+
 import '../Styles/Profile.css';
 
 // Displays an overview for Marvel Character profile. 
@@ -21,6 +22,7 @@ class Profile extends React.Component {
                     marvel_id={this.props.marvel_id}
                     name={this.props.name}
                     description={this.props.description}
+                    creators={this.props.creators}
                     url={this.props.url}
                     searchType={this.props.searchType}
                 />  

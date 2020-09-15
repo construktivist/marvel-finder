@@ -18,6 +18,7 @@ class Results extends React.Component {
                             marvel_id={result.id} 
                             name={result.name}
                             description={result.description}
+                            creators={[]}
                             thumbnail={result.thumbnail.path + '.' + result.thumbnail.extension} 
                             url={result.urls[1].url}
                             searchType={this.props.searchType}
@@ -37,7 +38,7 @@ class Results extends React.Component {
                             marvel_id={result.id}
                             title={result.title}
                             url={result.urls[0].url}
-                            authors= {result.creators.items}
+                            creators={result.creators.items}
                             issueNumber={result.issueNumber}
                             thumbnail={result.thumbnail.path + '.' + result.thumbnail.extension}
                             searchType={this.props.searchType} 
