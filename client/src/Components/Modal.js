@@ -2,6 +2,8 @@ import React from 'react';
 import $ from "jquery";
 import { Link } from 'react-router-dom'
 
+import '../Styles/Modal.css';
+
 
 class Modal extends React.Component {
     constructor (props) {
@@ -47,7 +49,7 @@ class Modal extends React.Component {
                         <p>{this.props.description}</p>
                         {this.props.creators.map(creator => 
                         <div className="creator">
-                            <p className="role">{creator.role}</p>
+                            <p className="role">{creator.role.charAt(0).toUpperCase() + creator.role.slice(1) + ": "}</p>
                             <p className="name">{creator.name}</p>
                         </div>    
                         )}
