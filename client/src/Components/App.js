@@ -9,12 +9,14 @@ import Comics from './Comics';
 import Characters from './Characters';
 import Search from './Search';
 import Results from './Results';
+import Loading from './Loading';
 
 class App extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
       featured: 'thor',
+      loading: 'false',
       searchTerm: '',
       searchType: 'character',
       results: '',
@@ -119,10 +121,11 @@ class App extends React.Component {
             />}
           />
 
+          { this.state.loading ? <Loading /> : 
           <Results 
             searchType={this.state.searchType} 
             searchResults={this.state.results} 
-          />
+          /> }
 
         </div>
       </Router>
