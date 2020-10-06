@@ -16,7 +16,7 @@ class App extends React.Component {
     super (props);
     this.state = {
       featured: 'thor',
-      loading: 'false',
+      loading: true,
       searchTerm: '',
       searchType: 'character',
       results: '',
@@ -26,6 +26,7 @@ class App extends React.Component {
   //Component will search for the featured hero after mounting.
   componentDidMount () {
     this.find(this.state.featured);
+    console.log(this.state.loading);
   }
 
   //This function sets the searchType state based on what component the user has mounted.
@@ -69,10 +70,18 @@ class App extends React.Component {
 
   //Used by find() below to perform the specific GET request.
   request = (type, params) => {
+
+    // Enable the Loading message appear.
+    this.setState({
+      loading: true,
+    });
+
+    // GET request to marvel api
     axios.get(type, params)
     .then(response => {
         this.setState({
             results: response.data,
+            loading: false,
         });
         console.log(response.data)
         console.log(response.data[0]);
