@@ -20,7 +20,7 @@ class Modal extends React.Component {
         $('body').removeClass('modal-open');
 
         //Updates this state so the Link 'to' and 'label' rendered below in the modal.
-        if (this.props.searchType == 'comic') {
+        if (this.props.searchType === 'comic') {
             const newLink = '/characters';
             const newLabel = 'Character';
             this.setState({
@@ -53,7 +53,7 @@ class Modal extends React.Component {
                             <p className="name">{creator.name}</p>
                         </div>    
                         )}
-                        <a href={this.props.url} target="_blank">Marvel.com</a>
+                        <a href={this.props.url} target="_blank" rel="noopener noreferrer">Marvel.com</a>
                         <br />
                         <Link to={this.state.link}>{this.state.label}</Link>
                     </div>
