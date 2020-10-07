@@ -40,7 +40,8 @@ router.get('/comics', (req, res) => {
             titleStartsWith: req.query.titleStartsWith,
             ts: ts,
             apikey: process.env.PUBLIC_API_KEY,
-            hash: hash
+            hash: hash,
+            limit: 50
         }
     })
     .then(function (response) {
