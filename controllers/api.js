@@ -38,10 +38,12 @@ router.get('/comics', (req, res) => {
     axios.get(baseURL + 'comics', {
         params: {
             titleStartsWith: req.query.titleStartsWith,
+            orderBy: req.query.orderBy,
+            offset: req.query.offset,
             ts: ts,
             apikey: process.env.PUBLIC_API_KEY,
             hash: hash,
-            limit: 50
+            limit: 50,
         }
     })
     .then(function (response) {

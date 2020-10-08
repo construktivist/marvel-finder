@@ -18,6 +18,8 @@ class App extends React.Component {
       featured: 'thor',
       loading: true,
       searchTerm: '',
+      orderBy:'title',
+      offset: 49,
       searchType: 'character',
       results: '',
     }
@@ -60,6 +62,8 @@ class App extends React.Component {
         this.request('/comics', {
             params: {
                 titleStartsWith: this.state.searchTerm,
+                orderBy: this.state.orderBy,
+                offset: this.state.offset
             }
         });
     }
