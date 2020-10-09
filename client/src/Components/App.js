@@ -18,8 +18,8 @@ class App extends React.Component {
       featured: 'thor',
       loading: true,
       searchTerm: '',
-      orderBy:'title',
-      offset: 49,
+      orderBy:'-onsaleDate',
+      offset: 0,
       searchType: 'character',
       results: '',
     }
