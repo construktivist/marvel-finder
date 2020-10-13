@@ -20,8 +20,8 @@
     transition: all .2s ease-in-out;
 }
 
-.expand:hover {
-    transform: scale(2.2);
+.cover.expand:hover {
+    transform: scale(1.5);
 }
 
 .cover a {
