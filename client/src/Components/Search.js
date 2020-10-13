@@ -28,8 +28,8 @@ class Search extends React.Component {
 
     render () {
         return (
-                <div className="row w-50">
-                    <form onSubmit={this.handleSubmit}>
+                <div className="row">
+                    <form className="w-50" onSubmit={this.handleSubmit}>
                         <div className="searchbox">
                             <i className="fas fa-search col-xs-2"></i> 
                             <input 
@@ -40,6 +40,19 @@ class Search extends React.Component {
                                 onChange={this.handleChange} />
                         </div>
                     </form>
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm" type="button">
+                            Small split button
+                        </button>
+                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
                 </div>
         )
     }
