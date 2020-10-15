@@ -22,3 +22,16 @@ i.fa-search{
    display: inline-block;
    margin-right: 10px;
 }
+
+.m-select {
+    flex: none;
+    width: auto;
+    height: 30px;
+    line-height: initial;
+    border: none;
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: red;
+}

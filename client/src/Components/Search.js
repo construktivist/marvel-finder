@@ -8,29 +8,37 @@ class Search extends React.Component {
         super(props);
         this.state = {
         search: '',
-        results: [],
+        sort: 'recent',
         }
     }
 
     //Handle text field changes for search input
     handleChange = event => {
         this.setState({
-            search: event.target.value,
+            search: event.target.value 
         })
-        console.log(this.state.search);
+    }
+
+    handleSelect = event => {
+        this.setState({
+            sort: event.target.value
+        })
     }
 
     //Make API call on submit using find() (App.js).
     handleSubmit = event => {
         event.preventDefault();
         this.props.find(this.state.search);
+        console.log(this.state.search);
+        console.log(this.state.sort);
     }
 
     render () {
         return (
                 <div className="row">
-                    <form className="w-50" onSubmit={this.handleSubmit}>
-                        <div className="searchbox">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="input-group">
+                        <div className="searchbox w-50">
                             <i className="fas fa-search col-xs-2"></i> 
                             <input 
                                 id="search" 
@@ -39,20 +47,14 @@ class Search extends React.Component {
                                 value={this.state.name}
                                 onChange={this.handleChange} />
                         </div>
-                    </form>
-                    <div class="btn-group">
-                        <button class="btn btn-secondary btn-sm" type="button">
-                            Small split button
-                        </button>
-                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                        <select onChange={this.handleSelect} className="m-select" id="input-sort-select">
+                            <option selected value="recent">Most Recent</option>
+                            <option value="alphabetical">Alphabetical</option>
+                            <option value="recent-issues">Recent issues</option>
+                            <option value="older-issues">Older issues</option>
+                        </select>
                         </div>
-                    </div>
+                    </form>
                 </div>
         )
     }
