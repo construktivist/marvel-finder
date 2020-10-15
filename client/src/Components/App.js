@@ -42,11 +42,22 @@ class App extends React.Component {
   //Performs the specific GET request using request() based on the searchType set by App.js
   find = (newSearchTerm) => {
     this.setState({
-      searchTerm: newSearchTerm
+      searchTerm: newSearchTerm,
     }, () => {
       this.search()
     });
     console.log(this.state.searchTerm);
+  }
+
+  sort = (newSort) => {
+    console.log('APP SORT ' + newSort);
+    this.setState({
+      sort: newSort
+    }, () => {
+      this.search()
+    });
+    console.log(this.state.searchTerm);
+    console.log(this.state.newSort);
   }
 
   //Performs the specific GET request using request() based on the searchType and searchTerm.
@@ -114,6 +125,7 @@ class App extends React.Component {
             searchType={this.state.searchType} 
             handleResults={this.handleResults} 
             find={this.find}
+            sort={this.sort}
           />
 
           <Route path="/characters" render={(props) => 
