@@ -31,10 +31,10 @@ class Results extends React.Component {
         else if (this.props.searchType === 'comic' && typeof this.props.searchResults === 'object') {
             return (
                 <div className="results row">
-                    {this.props.searchResults.map((result) => 
+                    {this.props.searchResults.map((result, index) => 
                         <Cover
                             key={result.id}
-                            id={result.title.replace(/[^A-Za-z]/g, '')}
+                            id={result.title.replace(/[^A-Za-z]/g, '') + "-" + index}
                             marvel_id={result.id}
                             title={result.title}
                             url={result.urls[0].url}

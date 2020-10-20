@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
+
 import '../Styles/Cover.css';
 
 // Displays an overview for Marvel Character profile. 
