@@ -31,6 +31,7 @@ class App extends React.Component {
     console.log(this.state.loading);
   }
 
+
   //This function sets the searchType state based on what component the user has mounted.
   setSearchType = (newSearchType) => {
     this.setState({
@@ -49,15 +50,15 @@ class App extends React.Component {
     console.log(this.state.searchTerm);
   }
 
-  sort = (newSort) => {
-    console.log('APP SORT ' + newSort);
+  sort = (newOrderBy) => {
+    console.log('APP SORT ' + newOrderBy);
     this.setState({
-      sort: newSort
+      orderBy: newOrderBy
     }, () => {
       this.search()
     });
     console.log(this.state.searchTerm);
-    console.log(this.state.newSort);
+    console.log(this.state.orderBy);
   }
 
   //Performs the specific GET request using request() based on the searchType and searchTerm.
@@ -67,9 +68,10 @@ class App extends React.Component {
               params: {
                   characterName: this.state.searchTerm,
               }
-      });        
+      });      
     }
     else if (this.state.searchType === 'comic') {
+      console.log('APP SEARCH ' + this.state.orderBy);  
         this.request('/comics', {
             params: {
                 titleStartsWith: this.state.searchTerm,
@@ -98,8 +100,8 @@ class App extends React.Component {
             results: response.data,
             loading: false,
         });
-        console.log(response.data)
-        console.log(response.data[0]);
+        // console.log(response.data)
+        // console.log(response.data[0]);
     })
     .catch(error => {
         console.log('ERROR: ' + error)

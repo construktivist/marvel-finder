@@ -8,7 +8,7 @@ class Search extends React.Component {
         super(props);
         this.state = {
         search: '',
-        sort: 'recent',
+        sort: '-onsaleDate',
         }
     }
 
@@ -48,10 +48,12 @@ class Search extends React.Component {
                                 onChange={this.handleChange} />
                         </div>
                         <select onChange={this.handleSelect} className="m-select" id="input-sort-select">
-                            <option value="recent">Most Recent</option>
-                            <option value="alphabetical">Alphabetical</option>
-                            <option value="recent-issues">Recent issues</option>
-                            <option value="older-issues">Older issues</option>
+                            <option value="focDate">Most Recent</option>
+                            <option value="-focDate">Older</option>
+                            <option value="title">Alphabetical (Descending)</option>
+                            <option value="-title">Alphabetical (Ascending)</option>
+                            <option value="issueNumber">Issue Number (Descending)</option>
+                            <option value="-issueNumber">Issue Number (Ascending)</option>
                         </select>
                         </div>
                     </form>
