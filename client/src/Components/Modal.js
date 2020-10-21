@@ -47,8 +47,8 @@ class Modal extends React.Component {
                     <div className="modal-body">
                         <p>Marvel ID: {this.props.marvel_id}</p>
                         <p>{this.props.description}</p>
-                        {this.props.creators.map(creator => 
-                        <div className="creator">
+                        {this.props.creators.map((creator, index) => 
+                        <div className="creator" key={index + creator.name.slice('')}>
                             <p className="role">{creator.role.charAt(0).toUpperCase() + creator.role.slice(1) + ": "}</p>
                             <p className="name">{creator.name}</p>
                         </div>    
