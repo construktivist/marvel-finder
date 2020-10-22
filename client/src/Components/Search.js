@@ -8,7 +8,7 @@ class Search extends React.Component {
         super(props);
         this.state = {
         search: '',
-        sort: '-onsaleDate',
+        sort: '-focDate',
         }
     }
 
@@ -21,16 +21,17 @@ class Search extends React.Component {
 
     //Handles the sort dropdown
     handleSelect = event => {
+        event.preventDefault();
         this.setState({
             sort: event.target.value
         })
-        this.props.sort(this.state.sort);
+        this.props.find(this.state.search, this.state.sort);
     }
 
     //Make API call on submit using find() (App.js).
     handleSubmit = event => {
         event.preventDefault();
-        this.props.find(this.state.search);
+        this.props.find(this.state.search, this.state.sort);
     }
 
     render () {

@@ -41,13 +41,13 @@ class App extends React.Component {
   }
 
   //Performs the specific GET request using request() based on the searchType set by App.js
-  find = (newSearchTerm) => {
+  find = (newSearchTerm, newOrderBy) => {
     this.setState({
       searchTerm: newSearchTerm,
+      orderBy: newOrderBy
     }, () => {
       this.search()
     });
-    console.log(this.state.searchTerm);
   }
 
   sort = (newOrderBy) => {
@@ -58,7 +58,7 @@ class App extends React.Component {
       this.search()
     });
     console.log(this.state.searchTerm);
-    console.log(this.state.orderBy);
+    console.log('APP SORT: ' + this.state.orderBy);
   }
 
   //Performs the specific GET request using request() based on the searchType and searchTerm.
