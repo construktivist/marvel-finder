@@ -18,7 +18,7 @@ class App extends React.Component {
       featured: 'thor',
       loading: true,
       searchTerm: '',
-      orderBy:'-onsaleDate',
+      orderBy:'-focdate',
       offset: 0,
       searchType: 'character',
       results: '',
@@ -46,19 +46,10 @@ class App extends React.Component {
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
+      console.log('FIND ' + newSearchTerm)
+      console.log('FIND ' + newOrderBy)
       this.search()
     });
-  }
-
-  sort = (newOrderBy) => {
-    console.log('APP SORT ' + newOrderBy);
-    this.setState({
-      orderBy: newOrderBy
-    }, () => {
-      this.search()
-    });
-    console.log(this.state.searchTerm);
-    console.log('APP SORT: ' + this.state.orderBy);
   }
 
   //Performs the specific GET request using request() based on the searchType and searchTerm.

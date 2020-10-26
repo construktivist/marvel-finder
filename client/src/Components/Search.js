@@ -8,7 +8,7 @@ class Search extends React.Component {
         super(props);
         this.state = {
         search: '',
-        sort: '-focDate',
+        sort: '',
         }
     }
 
@@ -21,10 +21,10 @@ class Search extends React.Component {
 
     //Handles the sort dropdown
     handleSelect = event => {
-        event.preventDefault();
         this.setState({
             sort: event.target.value
         })
+        console.log('HANDLE SELECT ' + this.state.sort)
         this.props.find(this.state.search, this.state.sort);
     }
 
