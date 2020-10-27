@@ -23,9 +23,10 @@ class Search extends React.Component {
     handleSelect = event => {
         this.setState({
             sort: event.target.value
+        }, () => {
+            console.log('HANDLE SELECT ' + this.state.sort)
+            this.props.find(this.state.search, this.state.sort); 
         })
-        console.log('HANDLE SELECT ' + this.state.sort)
-        this.props.find(this.state.search, this.state.sort);
     }
 
     //Make API call on submit using find() (App.js).
@@ -51,8 +52,8 @@ class Search extends React.Component {
                         <select onChange={this.handleSelect} className="m-select" id="input-sort-select">
                             <option value="focDate">Most Recent</option>
                             <option value="-focDate">Older</option>
-                            <option value="title">Alphabetical (Descending)</option>
-                            <option value="-title">Alphabetical (Ascending)</option>
+                            <option value="title">Alphabetical (A-Z)</option>
+                            <option value="-title">Alphabetical (Z-A)</option>
                             <option value="issueNumber">Issue Number (Descending)</option>
                             <option value="-issueNumber">Issue Number (Ascending)</option>
                         </select>

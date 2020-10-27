@@ -18,7 +18,7 @@ class App extends React.Component {
       featured: 'thor',
       loading: true,
       searchTerm: '',
-      orderBy:'-focdate',
+      orderBy:'-focDate',
       offset: 0,
       searchType: 'character',
       results: '',
@@ -28,7 +28,6 @@ class App extends React.Component {
   //Component will search for the featured hero after mounting.
   componentDidMount () {
     this.find(this.state.featured);
-    console.log(this.state.loading);
   }
 
 
@@ -46,8 +45,8 @@ class App extends React.Component {
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
-      console.log('FIND ' + newSearchTerm)
-      console.log('FIND ' + newOrderBy)
+      // console.log('FIND ' + newSearchTerm)
+      // console.log('FIND ' + newOrderBy)
       this.search()
     });
   }
@@ -62,7 +61,7 @@ class App extends React.Component {
       });      
     }
     else if (this.state.searchType === 'comic') {
-      console.log('APP SEARCH ' + this.state.orderBy);  
+      // console.log('APP SEARCH ' + this.state.orderBy);  
         this.request('/comics', {
             params: {
                 titleStartsWith: this.state.searchTerm,
