@@ -41,6 +41,8 @@ class App extends React.Component {
 
   //Performs the specific GET request using request() based on the searchType set by App.js
   find = (newSearchTerm, newOrderBy) => {
+    if (!newSearchTerm) newSearchTerm = this.state.featured;
+
     this.setState({
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
@@ -53,6 +55,7 @@ class App extends React.Component {
 
   //Performs the specific GET request using request() based on the searchType and searchTerm.
   search = () => {
+
     if (this.state.searchType === 'character') {
       this.request('/character', {
               params: {
@@ -117,7 +120,6 @@ class App extends React.Component {
             searchType={this.state.searchType} 
             handleResults={this.handleResults} 
             find={this.find}
-            sort={this.sort}
           />
 
           <Route path="/characters" render={(props) => 
