@@ -10,6 +10,7 @@ import Characters from './Characters';
 import Search from './Search';
 import Results from './Results';
 import Loading from './Loading';
+import ViewMoreButton from './ViewMoreButton';
 
 class App extends React.Component {
   constructor (props) {
@@ -145,6 +146,8 @@ class App extends React.Component {
             searchType={this.state.searchType} 
             searchResults={this.state.results} 
           /> }
+
+          <ViewMoreButton />
 
         </div>
       </Router>
