@@ -43,13 +43,11 @@ router.get('/comics', (req, res) => {
             ts: ts,
             apikey: process.env.PUBLIC_API_KEY,
             hash: hash,
-            limit: 52,
+            limit: 24,
         }
     })
     .then(function (response) {
         let results = response.data.data.results
-        console.log('RESPONSE data: ' + response.data.data.results);
-        console.log('RESPONSE length: ' + response.data.data.results.length);
         response.data.data.results.length > 0 ? results = response.data.data.results : results = 'Sorry! No search results were found.'
         res.send(results);
     })

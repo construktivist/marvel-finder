@@ -9,8 +9,9 @@ class ViewMoreButton extends React.Component {
         }
     }
 
-    handleClick = () => {
-        const newOffset = this.state.offset += 20;
+    handleClick = (e) => {
+        e.preventDefault();
+        const newOffset = this.state.offset += 24;
         this.setState({
             offeset: newOffset
         }, () => this.props.updateOffset(this.state.offset))

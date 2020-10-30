@@ -22,7 +22,7 @@ class App extends React.Component {
       orderBy:'-focDate',
       offset: 0,
       searchType: 'character',
-      results: '',
+      initalResults: '',
     }
   }
 
@@ -96,12 +96,20 @@ class App extends React.Component {
     // GET request to marvel api
     axios.get(type, params)
     .then(response => {
-        this.setState({
-            results: response.data,
+        if (this.state.offset === 0) {
+          this.setState({
+            initialResults: response.data,
             loading: false,
-        });
-        // console.log(response.data)
-        // console.log(response.data[0]);
+          });
+        }
+        else {
+          const moreResults = response.data;
+          console.log('More Results: ' + moreResults);
+          this.setState({
+            moreResults: moreResults,
+            loading: false,
+          })
+        }  
     })
     .catch(error => {
         console.log('ERROR: ' + error)
@@ -110,20 +118,9 @@ class App extends React.Component {
 
   //This function passes api data from Search.js to App.js
   handleResults = (newResults) => { 
-    if (this.state.offset === 0) {
-      this.setState({
-        results: newResults
-      })
-      console.log(this.state.results);
-    }
-    else {
-      const moreResults = this.state.results.concat(newResults);
-      this.setState({
-        results: moreResults
-      })
-      console.log(this.state.results);
-    }
-
+    this.setState({
+      results: newResults
+    }) 
   }
  
 
@@ -160,8 +157,14 @@ class App extends React.Component {
           { this.state.loading ? <Loading /> : 
           <Results 
             searchType={this.state.searchType} 
-            searchResults={this.state.results} 
+            searchResults={this.state.initialResults} 
           /> }
+
+          { this.state.moreResults ? 
+          <Results 
+            searchType={this.state.searchType} 
+            searchResults={this.state.moreResults} 
+          /> : <div></div> }
 
           <ViewMoreButton updateOffset={this.updateOffset} />
 
