@@ -37,7 +37,13 @@ class App extends React.Component {
     this.setState({
       searchType: newSearchType
     })
-    console.log(this.state.searchType)
+    // console.log(this.state.searchType)
+  }
+
+  updateOffset = (newOffset) => {
+    this.setState({
+      offset: newOffset
+    }, () => this.search())
   }
 
   //Performs the specific GET request using request() based on the searchType set by App.js
@@ -103,11 +109,21 @@ class App extends React.Component {
   }
 
   //This function passes api data from Search.js to App.js
-  handleResults = (newResults) => {  
-    this.setState({
-      results: newResults
-    })
-    console.log(this.state.results);
+  handleResults = (newResults) => { 
+    if (this.state.offset === 0) {
+      this.setState({
+        results: newResults
+      })
+      console.log(this.state.results);
+    }
+    else {
+      const moreResults = this.state.results.concat(newResults);
+      this.setState({
+        results: moreResults
+      })
+      console.log(this.state.results);
+    }
+
   }
  
 
@@ -147,7 +163,7 @@ class App extends React.Component {
             searchResults={this.state.results} 
           /> }
 
-          <ViewMoreButton />
+          <ViewMoreButton updateOffset={this.updateOffset} />
 
         </div>
       </Router>
