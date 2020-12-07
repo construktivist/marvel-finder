@@ -48,14 +48,16 @@ class App extends React.Component {
 
   //Performs the specific GET request using request() based on the searchType set by App.js
   find = (newSearchTerm, newOrderBy) => {
+
     if (!newSearchTerm) newSearchTerm = this.state.featured;
+    if (!newOrderBy) newOrderBy = this.state.orderBy;
 
     this.setState({
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
-      // console.log('FIND ' + newSearchTerm)
-      // console.log('FIND ' + newOrderBy)
+      console.log('FIND ' + this.state.searchTerm)
+      console.log('FIND ' + this.state.orderBy)
       this.search()
     });
   }
@@ -117,11 +119,11 @@ class App extends React.Component {
   }
 
   //This function passes api data from Search.js to App.js
-  handleResults = (newResults) => { 
-    this.setState({
-      results: newResults
-    }) 
-  }
+  // handleResults = (newResults) => { 
+  //   this.setState({
+  //     results: newResults
+  //   }) 
+  // }
  
 
   render () {
@@ -132,7 +134,6 @@ class App extends React.Component {
 
           <Search 
             searchType={this.state.searchType} 
-            handleResults={this.handleResults} 
             find={this.find}
           />
 
@@ -140,8 +141,7 @@ class App extends React.Component {
             <Characters 
                 setSearchType={this.setSearchType}
                 searchTerm={this.state.searchTerm} 
-                find={this.find} 
-                handleResults={this.handleResults}                 
+                find={this.find}               
             />}
           />
 
@@ -150,7 +150,6 @@ class App extends React.Component {
               setSearchType={this.setSearchType}
               searchTerm={this.state.searchTerm}  
               find={this.find} 
-              handleResults={this.handleResults}
             />}
           />
 
@@ -160,11 +159,11 @@ class App extends React.Component {
             searchResults={this.state.initialResults} 
           /> }
 
-          { this.state.moreResults ? 
+          {/* { this.state.moreResults ? 
           <Results 
             searchType={this.state.searchType} 
             searchResults={this.state.moreResults} 
-          /> : <div></div> }
+          /> : <div></div> } */}
 
           <ViewMoreButton updateOffset={this.updateOffset} />
 
