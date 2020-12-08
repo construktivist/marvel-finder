@@ -43,7 +43,7 @@ router.get('/comics', (req, res) => {
             ts: ts,
             apikey: process.env.PUBLIC_API_KEY,
             hash: hash,
-            limit: 52,
+            limit: 24,
         }
     })
     .then(function (response) {

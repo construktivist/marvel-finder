@@ -27,7 +27,7 @@ class App extends React.Component {
 
   //Component will search for the featured hero after mounting.
   componentDidMount () {
-    this.find(this.state.featured);
+    this.find(this.state.featured, this.state.orderBy);
   }
 
 
@@ -36,26 +36,28 @@ class App extends React.Component {
     this.setState({
       searchType: newSearchType
     })
-    console.log(this.state.searchType)
-  }
+  }  
+  
 
   //Performs the specific GET request using request() based on the searchType set by App.js
   find = (newSearchTerm, newOrderBy) => {
+
     if (!newSearchTerm) newSearchTerm = this.state.featured;
+    if (!newOrderBy) newOrderBy = this.state.orderBy;
 
     this.setState({
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
-      // console.log('FIND ' + newSearchTerm)
-      // console.log('FIND ' + newOrderBy)
+      console.log('FIND ' + this.state.searchTerm)
+      console.log('FIND ' + this.state.orderBy)
       this.search()
     });
   }
 
   //Performs the specific GET request using request() based on the searchType and searchTerm.
   search = () => {
-
+    console.log('SEARCH TYPE ' + this.state.searchType);
     if (this.state.searchType === 'character') {
       this.request('/character', {
               params: {
@@ -69,7 +71,6 @@ class App extends React.Component {
             params: {
                 titleStartsWith: this.state.searchTerm,
                 orderBy: this.state.orderBy,
-                offset: this.state.offset
             }
         });
     }
@@ -89,27 +90,16 @@ class App extends React.Component {
     // GET request to marvel api
     axios.get(type, params)
     .then(response => {
-        this.setState({
+          this.setState({
             results: response.data,
             loading: false,
-        });
-        // console.log(response.data)
-        // console.log(response.data[0]);
+          });
     })
     .catch(error => {
         console.log('ERROR: ' + error)
     })
   }
-
-  //This function passes api data from Search.js to App.js
-  handleResults = (newResults) => {  
-    this.setState({
-      results: newResults
-    })
-    console.log(this.state.results);
-  }
  
-
   render () {
     return (
       <Router>
@@ -118,7 +108,6 @@ class App extends React.Component {
 
           <Search 
             searchType={this.state.searchType} 
-            handleResults={this.handleResults} 
             find={this.find}
           />
 
@@ -126,8 +115,7 @@ class App extends React.Component {
             <Characters 
                 setSearchType={this.setSearchType}
                 searchTerm={this.state.searchTerm} 
-                find={this.find} 
-                handleResults={this.handleResults}                 
+                find={this.find}               
             />}
           />
 
@@ -136,7 +124,6 @@ class App extends React.Component {
               setSearchType={this.setSearchType}
               searchTerm={this.state.searchTerm}  
               find={this.find} 
-              handleResults={this.handleResults}
             />}
           />
 
@@ -150,6 +137,7 @@ class App extends React.Component {
       </Router>
     )
   }
+  
 }
 
 class Nav extends React.Component {
