@@ -41,14 +41,20 @@ class App extends React.Component {
 
   updateOffset = (newOffset) => {
     this.setState({
+      searchType: newSearchType
+    })
+    // console.log(this.state.searchType)
+  }
+
+  updateOffset = (newOffset) => {
+    this.setState({
       offset: newOffset
     }, () => this.search())
   }
 
   //Performs the specific GET request using request() based on the searchType set by App.js
-  find = (newSearchTerm, newOrderBy, newSearchType) => {
-    console.log('FIND RUN')
-    console.log('SEARCHTYPE ' + this.state.searchType);
+  find = (newSearchTerm, newOrderBy) => {
+
     if (!newSearchTerm) newSearchTerm = this.state.featured;
     if (!newOrderBy) newOrderBy = this.state.orderBy;
 
@@ -57,9 +63,8 @@ class App extends React.Component {
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
-      console.log('FIND TERM ' + this.state.searchTerm)
-      console.log('FIND TYPE' + this.state.searchType)
-      console.log('FIND ORDER ' + this.state.orderBy)
+      console.log('FIND ' + this.state.searchTerm)
+      console.log('FIND ' + this.state.orderBy)
       this.search()
     });
   }
@@ -101,14 +106,10 @@ class App extends React.Component {
     axios.get(type, params)
     .then(response => {
         if (this.state.offset === 0) {
-          console.log('OFFSET: ' + this.state.offset);
-          console.log('INITIAL RESULTS: ' + this.state.initalResults);
           this.setState({
             initialResults: response.data,
             loading: false,
           });
-          console.log('OFFSET: ' + this.state.offset);
-          console.log('INITIAL RESULTS: ' + this.state.initalResults);
         }
         else {
           const moreResults = response.data;
