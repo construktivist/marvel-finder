@@ -21,7 +21,7 @@ class App extends React.Component {
       orderBy:'-focDate',
       offset: 0,
       searchType: 'character',
-      results: '',
+      initalResults: '',
     }
   }
 
@@ -32,7 +32,13 @@ class App extends React.Component {
 
 
   //This function sets the searchType state based on what component the user has mounted.
-  setSearchType = (newSearchType) => {
+  // setSearchType = (newSearchType) => {
+  //   this.setState({
+  //     searchType: newSearchType
+  //   })
+  // }
+
+  updateOffset = (newOffset) => {
     this.setState({
       searchType: newSearchType
     })
@@ -46,6 +52,7 @@ class App extends React.Component {
     if (!newOrderBy) newOrderBy = this.state.orderBy;
 
     this.setState({
+      searchType: newSearchType,
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
@@ -130,8 +137,16 @@ class App extends React.Component {
           { this.state.loading ? <Loading /> : 
           <Results 
             searchType={this.state.searchType} 
-            searchResults={this.state.results} 
+            searchResults={this.state.initialResults} 
           /> }
+
+          {/* { this.state.moreResults ? 
+          <Results 
+            searchType={this.state.searchType} 
+            searchResults={this.state.moreResults} 
+          /> : <div></div> } */}
+
+          <ViewMoreButton updateOffset={this.updateOffset} />
 
         </div>
       </Router>
