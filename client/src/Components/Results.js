@@ -29,6 +29,7 @@ class Results extends React.Component {
         }
         // Renders Cover component if the searchType is equal to comic
         else if (this.props.searchType === 'comic' && typeof this.props.searchResults === 'object') {
+            console.log('SEARCH RESULTS ' + this.props.searchResults);
             return (
                 <div className="results row">
                     {this.props.searchResults.map((result, index) => 

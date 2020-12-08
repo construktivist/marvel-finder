@@ -10,6 +10,7 @@ import Characters from './Characters';
 import Search from './Search';
 import Results from './Results';
 import Loading from './Loading';
+import ViewMoreButton from './ViewMoreButton';
 
 class App extends React.Component {
   constructor (props) {
@@ -21,41 +22,51 @@ class App extends React.Component {
       orderBy:'-focDate',
       offset: 0,
       searchType: 'character',
-      results: '',
+      initalResults: '',
     }
   }
 
   //Component will search for the featured hero after mounting.
   componentDidMount () {
-    this.find(this.state.featured);
+    this.find(this.state.featured, this.state.orderBy, this.state.searchType);
   }
 
 
   //This function sets the searchType state based on what component the user has mounted.
-  setSearchType = (newSearchType) => {
+  // setSearchType = (newSearchType) => {
+  //   this.setState({
+  //     searchType: newSearchType
+  //   })
+  // }
+
+  updateOffset = (newOffset) => {
     this.setState({
-      searchType: newSearchType
-    })
-    console.log(this.state.searchType)
+      offset: newOffset
+    }, () => this.search())
   }
 
   //Performs the specific GET request using request() based on the searchType set by App.js
-  find = (newSearchTerm, newOrderBy) => {
+  find = (newSearchTerm, newOrderBy, newSearchType) => {
+    console.log('FIND RUN')
+    console.log('SEARCHTYPE ' + this.state.searchType);
     if (!newSearchTerm) newSearchTerm = this.state.featured;
+    if (!newOrderBy) newOrderBy = this.state.orderBy;
 
     this.setState({
+      searchType: newSearchType,
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
-      // console.log('FIND ' + newSearchTerm)
-      // console.log('FIND ' + newOrderBy)
+      console.log('FIND TERM ' + this.state.searchTerm)
+      console.log('FIND TYPE' + this.state.searchType)
+      console.log('FIND ORDER ' + this.state.orderBy)
       this.search()
     });
   }
 
   //Performs the specific GET request using request() based on the searchType and searchTerm.
   search = () => {
-
+    console.log('SEARCH TYPE ' + this.state.searchType);
     if (this.state.searchType === 'character') {
       this.request('/character', {
               params: {
@@ -89,12 +100,24 @@ class App extends React.Component {
     // GET request to marvel api
     axios.get(type, params)
     .then(response => {
-        this.setState({
-            results: response.data,
+        if (this.state.offset === 0) {
+          console.log('OFFSET: ' + this.state.offset);
+          console.log('INITIAL RESULTS: ' + this.state.initalResults);
+          this.setState({
+            initialResults: response.data,
             loading: false,
-        });
-        // console.log(response.data)
-        // console.log(response.data[0]);
+          });
+          console.log('OFFSET: ' + this.state.offset);
+          console.log('INITIAL RESULTS: ' + this.state.initalResults);
+        }
+        else {
+          const moreResults = response.data;
+          console.log('More Results: ' + moreResults);
+          this.setState({
+            moreResults: moreResults,
+            loading: false,
+          })
+        }  
     })
     .catch(error => {
         console.log('ERROR: ' + error)
@@ -102,12 +125,11 @@ class App extends React.Component {
   }
 
   //This function passes api data from Search.js to App.js
-  handleResults = (newResults) => {  
-    this.setState({
-      results: newResults
-    })
-    console.log(this.state.results);
-  }
+  // handleResults = (newResults) => { 
+  //   this.setState({
+  //     results: newResults
+  //   }) 
+  // }
  
 
   render () {
@@ -118,7 +140,6 @@ class App extends React.Component {
 
           <Search 
             searchType={this.state.searchType} 
-            handleResults={this.handleResults} 
             find={this.find}
           />
 
@@ -126,8 +147,7 @@ class App extends React.Component {
             <Characters 
                 setSearchType={this.setSearchType}
                 searchTerm={this.state.searchTerm} 
-                find={this.find} 
-                handleResults={this.handleResults}                 
+                find={this.find}               
             />}
           />
 
@@ -136,15 +156,22 @@ class App extends React.Component {
               setSearchType={this.setSearchType}
               searchTerm={this.state.searchTerm}  
               find={this.find} 
-              handleResults={this.handleResults}
             />}
           />
 
           { this.state.loading ? <Loading /> : 
           <Results 
             searchType={this.state.searchType} 
-            searchResults={this.state.results} 
+            searchResults={this.state.initialResults} 
           /> }
+
+          {/* { this.state.moreResults ? 
+          <Results 
+            searchType={this.state.searchType} 
+            searchResults={this.state.moreResults} 
+          /> : <div></div> } */}
+
+          <ViewMoreButton updateOffset={this.updateOffset} />
 
         </div>
       </Router>
