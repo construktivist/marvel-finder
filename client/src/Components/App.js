@@ -19,7 +19,6 @@ class App extends React.Component {
       loading: true,
       searchTerm: '',
       orderBy:'-focDate',
-      offset: 0,
       searchType: 'character',
       initalResults: '',
     }
@@ -37,12 +36,6 @@ class App extends React.Component {
   //     searchType: newSearchType
   //   })
   // }
-
-  updateOffset = (newOffset) => {
-    this.setState({
-      searchType: newSearchType
-    })
-  }  
   
 
   //Performs the specific GET request using request() based on the searchType set by App.js
@@ -52,7 +45,6 @@ class App extends React.Component {
     if (!newOrderBy) newOrderBy = this.state.orderBy;
 
     this.setState({
-      searchType: newSearchType,
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
@@ -139,14 +131,6 @@ class App extends React.Component {
             searchType={this.state.searchType} 
             searchResults={this.state.initialResults} 
           /> }
-
-          {/* { this.state.moreResults ? 
-          <Results 
-            searchType={this.state.searchType} 
-            searchResults={this.state.moreResults} 
-          /> : <div></div> } */}
-
-          <ViewMoreButton updateOffset={this.updateOffset} />
 
         </div>
       </Router>
