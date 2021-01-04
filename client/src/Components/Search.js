@@ -51,12 +51,12 @@ class Search extends React.Component {
                             </div>
                             { this.props.searchType === 'comic' ?
                                 <select onChange={this.handleSelect} className="m-select" id="input-sort-select">
-                                    <option value="focDate">Most Recent</option>
-                                    <option value="-focDate">Older</option>
-                                    <option value="title">Alphabetical (A-Z)</option>
-                                    <option value="-title">Alphabetical (Z-A)</option>
-                                    <option value="issueNumber">Issue Number (Descending)</option>
-                                    <option value="-issueNumber">Issue Number (Ascending)</option>
+                                    <option value="-focDate">Most Recent</option>
+                                    <option value="focDate">Older</option>
+                                    <option value="-title">Alphabetical (A-Z)</option>
+                                    <option value="title">Alphabetical (Z-A)</option>
+                                    <option value="-issueNumber">Issue Number (Descending)</option>
+                                    <option value="issueNumber">Issue Number (Ascending)</option>
                                 </select> : <div></div> }
                         
                         </div>

@@ -18,7 +18,7 @@ class App extends React.Component {
       featured: 'thor',
       loading: true,
       searchTerm: '',
-      orderBy:'-focDate',
+      orderBy:'',
       searchType: 'character',
       results: '',
     }
@@ -42,7 +42,6 @@ class App extends React.Component {
   find = (newSearchTerm, newOrderBy) => {
 
     if (!newSearchTerm) newSearchTerm = this.state.featured;
-    if (!newOrderBy) newOrderBy = this.state.orderBy;
 
     this.setState({
       searchTerm: newSearchTerm,
@@ -65,7 +64,7 @@ class App extends React.Component {
       });      
     }
     else if (this.state.searchType === 'comic') {
-      // console.log('APP SEARCH ' + this.state.orderBy);  
+      console.log('APP SEARCH ' + this.state.orderBy);  
         this.request('/comics', {
             params: {
                 titleStartsWith: this.state.searchTerm,
