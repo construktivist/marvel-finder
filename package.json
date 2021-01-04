@@ -20,15 +20,15 @@
   },
   "homepage": "https://github.com/construktivist/marvel-finder#readme",
   "dependencies": {
-    "@popperjs/core": "^2.4.4",
-    "axios": "^0.19.2",
-    "bootstrap": "^4.5.0",
+    "@popperjs/core": "^2.6.0",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.5.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
-    "md5": "^2.2.1"
+    "md5": "^2.3.0"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0"
+    "concurrently": "^5.3.0"
   }
 }
