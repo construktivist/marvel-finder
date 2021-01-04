@@ -20,7 +20,7 @@ class App extends React.Component {
       searchTerm: '',
       orderBy:'-focDate',
       searchType: 'character',
-      initalResults: '',
+      results: '',
     }
   }
 
@@ -31,11 +31,11 @@ class App extends React.Component {
 
 
   //This function sets the searchType state based on what component the user has mounted.
-  // setSearchType = (newSearchType) => {
-  //   this.setState({
-  //     searchType: newSearchType
-  //   })
-  // }
+  setSearchType = (newSearchType) => {
+    this.setState({
+      searchType: newSearchType
+    })
+  }
   
 
   //Performs the specific GET request using request() based on the searchType set by App.js
@@ -98,6 +98,14 @@ class App extends React.Component {
         console.log('ERROR: ' + error)
     })
   }
+
+    //This function passes api data from Search.js to App.js
+    handleResults = (newResults) => {  
+      this.setState({
+        results: newResults
+      })
+      console.log(this.state.results);
+    }
  
   render () {
     return (
@@ -107,6 +115,7 @@ class App extends React.Component {
 
           <Search 
             searchType={this.state.searchType} 
+            handleResults={this.handleResults} 
             find={this.find}
           />
 
@@ -114,6 +123,7 @@ class App extends React.Component {
             <Characters 
                 setSearchType={this.setSearchType}
                 searchTerm={this.state.searchTerm} 
+                handleResults={this.handleResults}
                 find={this.find}               
             />}
           />
@@ -121,7 +131,8 @@ class App extends React.Component {
           <Route path="/comics" render={(props) => 
             <Comics 
               setSearchType={this.setSearchType}
-              searchTerm={this.state.searchTerm}  
+              searchTerm={this.state.searchTerm}
+              handleResults={this.handleResults}  
               find={this.find} 
             />}
           />
@@ -129,7 +140,7 @@ class App extends React.Component {
           { this.state.loading ? <Loading /> : 
           <Results 
             searchType={this.state.searchType} 
-            searchResults={this.state.initialResults} 
+            searchResults={this.state.results} 
           /> }
 
         </div>
