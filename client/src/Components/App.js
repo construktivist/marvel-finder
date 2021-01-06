@@ -43,6 +43,7 @@ class App extends React.Component {
   find = (newSearchTerm, newOrderBy) => {
 
     if (!newSearchTerm) newSearchTerm = this.state.featured;
+    if (!newOrderBy) newOrderBy = '-focDate';
 
     this.setState({
       searchTerm: newSearchTerm,
@@ -70,6 +71,7 @@ class App extends React.Component {
             params: {
                 titleStartsWith: this.state.searchTerm,
                 orderBy: this.state.orderBy,
+                offset: this.state.offset,
             }
         });
     }
@@ -112,6 +114,7 @@ class App extends React.Component {
           offset: newOffset
         })
         console.log(this.state.offset);
+        this.find();
     }
 
   render () {
