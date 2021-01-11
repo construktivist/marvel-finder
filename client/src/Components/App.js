@@ -91,10 +91,30 @@ class App extends React.Component {
     // GET request to marvel api
     axios.get(type, params)
     .then(response => {
-          this.setState({
-            results: response.data,
-            loading: false,
-          });
+      if (type === '/character') {
+        this.setState({
+          results: response.data,
+          loading: false,
+        });
+      }
+      else if (type === '/comics' && this.state.offset == 0) {
+        this.setState({
+          results: response.data,
+          loading: false,
+        });
+      }
+      else {
+        const currentResults = this.state.results;
+        const moreResults = response.data;
+        const newResults = currentResults.concat(moreResults);
+
+        this.setState({
+          results: newResults,
+          loading: false,
+        })
+      }
+
+
     })
     .catch(error => {
         console.log('ERROR: ' + error)
