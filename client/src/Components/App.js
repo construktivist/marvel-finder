@@ -46,6 +46,23 @@ class App extends React.Component {
     if (!newOrderBy) newOrderBy = '-focDate';
 
     this.setState({
+      offset: 0,
+      results: '',
+      searchTerm: newSearchTerm,
+      orderBy: newOrderBy
+    }, () => {
+      console.log('FIND ' + this.state.searchTerm)
+      console.log('FIND ' + this.state.orderBy)
+      this.search()
+    });
+  }
+
+  findMore = (newSearchTerm, newOrderBy) => {
+
+    if (!newSearchTerm) newSearchTerm = this.state.featured;
+    if (!newOrderBy) newOrderBy = '-focDate';
+
+    this.setState({
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
@@ -134,7 +151,7 @@ class App extends React.Component {
           offset: newOffset
         })
         console.log(this.state.offset);
-        this.find();
+        this.findMore(this.state.searchTerm, this.state.orderBy);
     }
 
   render () {
