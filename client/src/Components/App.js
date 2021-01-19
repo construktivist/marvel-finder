@@ -114,7 +114,7 @@ class App extends React.Component {
           loading: false,
         });
       }
-      else if (type === '/comics' && this.state.offset == 0) {
+      else if (type === '/comics' && this.state.offset === 0) {
         this.setState({
           results: response.data,
           loading: false,
@@ -190,7 +190,7 @@ class App extends React.Component {
             searchResults={this.state.results} 
           /> }
 
-          { this.state.searchType == 'comic' ?  
+          { this.state.searchType === 'comic' ?  
           <ViewMoreButton
             updateOffset={this.updateOffset}
            /> : <div></div> }
