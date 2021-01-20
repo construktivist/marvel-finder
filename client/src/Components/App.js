@@ -124,14 +124,11 @@ class App extends React.Component {
         const currentResults = this.state.results;
         const moreResults = response.data;
         const newResults = currentResults.concat(moreResults);
-
         this.setState({
           results: newResults,
           loading: false,
         })
       }
-
-
     })
     .catch(error => {
         console.log('ERROR: ' + error)

@@ -10,12 +10,13 @@ class ViewMoreButton extends React.Component {
     }
 
     handleClick = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         let currentOffset = this.state.offset;
         const newOffset = currentOffset += 24;
         this.setState({
             offset: newOffset
         }, () => this.props.updateOffset(this.state.offset))
+        // return false;
     }
 
     render () {
