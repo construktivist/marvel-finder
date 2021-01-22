@@ -20,14 +20,35 @@ class App extends React.Component {
       loading: true,
       searchTerm: '',
       orderBy:'',
+      offset: 0,
       searchType: 'character',
       results: '',
+      previousY: 0,
     }
   }
 
   //Component will search for the featured hero after mounting.
   componentDidMount () {
     this.find(this.state.featured, this.state.orderBy);
+
+    var options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0
+    }
+
+    this.observer = new IntersectionObserver(this.handleObserver.bind(this), options);
+    this.observer.observe(this.loadingRef);
+  }
+
+  handleObserver(entities, observer) {
+    const currentY = entities[0].boundingClientRect.y;
+    if (this.state.previousY > currentY ) {
+      let currentOffset = this.state.offset;
+      this.setState({ offset: currentOffset += 24 });
+      this.findMore(this.state.searchTerm, this.state.orderBy);
+    }
+    this.setState({ previousY: currentY });
   }
 
 
@@ -191,6 +212,9 @@ class App extends React.Component {
             searchType={this.state.searchType} 
             searchResults={this.state.results} 
           /> }
+          <div
+            ref={loadingRef => (this.loadingRef = loadingRef)}
+          ></div>
 
           { this.state.searchType === 'comic' ?  
           <ViewMoreButton
