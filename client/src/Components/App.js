@@ -10,7 +10,6 @@ import Characters from './Characters';
 import Search from './Search';
 import Results from './Results';
 import Loading from './Loading';
-import ViewMoreButton from './ViewMoreButton';
 
 class App extends React.Component {
   constructor (props) {
@@ -207,19 +206,16 @@ class App extends React.Component {
             />}
           />
 
-          { this.state.loading ? <Loading /> : 
+          
           <Results 
             searchType={this.state.searchType} 
             searchResults={this.state.results} 
-          /> }
-          <div
-            ref={loadingRef => (this.loadingRef = loadingRef)}
-          ></div>
+          />
 
-          { this.state.searchType === 'comic' ?  
-          <ViewMoreButton
-            updateOffset={this.updateOffset}
-           /> : <div></div> }
+          
+          <div ref={loadingRef => (this.loadingRef = loadingRef)}>
+            <Loading />
+          </div>
 
 
         </div>
