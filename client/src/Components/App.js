@@ -30,16 +30,17 @@ class App extends React.Component {
   componentDidMount () {
     this.find(this.state.featured, this.state.orderBy);
 
-    var options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 1.0
-    }
+    // var options = {
+    //   root: null,
+    //   rootMargin: "0px",
+    //   threshold: 1.0
+    // }
 
-    this.observer = new IntersectionObserver(this.handleObserver.bind(this), options);
-    this.observer.observe(this.loadingRef);
+    // this.observer = new IntersectionObserver(this.handleObserver.bind(this), options);
+    // this.observer.observe(this.loadingRef);
   }
 
+  //Checks user scroll position and loads more comics when the user scrolls to the bottom.
   handleObserver(entities, observer) {
     const currentY = entities[0].boundingClientRect.y;
     if (this.state.previousY > currentY ) {
@@ -77,6 +78,7 @@ class App extends React.Component {
     });
   }
 
+  //Performs GET request specifically for the infinite scroll. This uses offset as it gets updated. 
   findMore = (newSearchTerm, newOrderBy) => {
 
     if (!newSearchTerm) newSearchTerm = this.state.featured;
@@ -139,21 +141,6 @@ class App extends React.Component {
         this.setState({ loading: false });
 
       }
-      // else if (type === '/comics' && this.state.offset === 0) {
-      //   this.setState({
-      //     results: response.data,
-      //     loading: false,
-      //   });
-      // }
-      // else {
-      //   const currentResults = this.state.results;
-      //   const moreResults = response.data;
-      //   const newResults = currentResults.concat(moreResults);
-      //   this.setState({
-      //     results: newResults,
-      //     loading: false,
-      //   })
-      // }
     })
     .catch(error => {
         console.log('ERROR: ' + error)
