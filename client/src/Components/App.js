@@ -41,15 +41,15 @@ class App extends React.Component {
   }
 
   //Checks user scroll position and loads more comics when the user scrolls to the bottom.
-  handleObserver(entities, observer) {
-    const currentY = entities[0].boundingClientRect.y;
-    if (this.state.previousY > currentY ) {
-      let currentOffset = this.state.offset;
-      this.setState({ offset: currentOffset += 24 });
-      this.findMore(this.state.searchTerm, this.state.orderBy);
-    }
-    this.setState({ previousY: currentY });
-  }
+  // handleObserver(entities, observer) {
+  //   const currentY = entities[0].boundingClientRect.y;
+  //   if (this.state.previousY > currentY ) {
+  //     let currentOffset = this.state.offset;
+  //     this.setState({ offset: currentOffset += 24 });
+  //     this.findMore(this.state.searchTerm, this.state.orderBy);
+  //   }
+  //   this.setState({ previousY: currentY });
+  // }
 
 
   //This function sets the searchType state based on what component the user has mounted.
