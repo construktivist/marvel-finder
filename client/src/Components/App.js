@@ -28,28 +28,27 @@ class App extends React.Component {
 
   //Component will search for the featured hero after mounting.
   componentDidMount () {
-    this.find(this.state.featured, this.state.orderBy);
 
-    // var options = {
-    //   root: null,
-    //   rootMargin: "0px",
-    //   threshold: 1.0
-    // }
+    var options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0
+    }
 
-    // this.observer = new IntersectionObserver(this.handleObserver.bind(this), options);
-    // this.observer.observe(this.loadingRef);
+    this.observer = new IntersectionObserver(this.handleObserver.bind(this), options);
+    this.observer.observe(this.loadingRef);
   }
 
-  //Checks user scroll position and loads more comics when the user scrolls to the bottom.
-  // handleObserver(entities, observer) {
-  //   const currentY = entities[0].boundingClientRect.y;
-  //   if (this.state.previousY > currentY ) {
-  //     let currentOffset = this.state.offset;
-  //     this.setState({ offset: currentOffset += 24 });
-  //     this.findMore(this.state.searchTerm, this.state.orderBy);
-  //   }
-  //   this.setState({ previousY: currentY });
-  // }
+  // Checks user scroll position and loads more comics when the user scrolls to the bottom.
+  handleObserver(entities, observer) {
+    const currentY = entities[0].boundingClientRect.y;
+    if (this.state.previousY > currentY ) {
+      let currentOffset = this.state.offset;
+      this.setState({ offset: currentOffset += 24 });
+      this.findMore(this.state.searchTerm, this.state.orderBy);
+    }
+    this.setState({ previousY: currentY });
+  }
 
 
   //This function sets the searchType state based on what component the user has mounted.

@@ -9,7 +9,7 @@ class Comics extends React.Component {
 
         this.props.setSearchType('comic');
         this.props.handleResults([]);
-        // this.props.find(this.props.searchTerm);
+        this.props.find(this.props.searchTerm);
 
         // var options = {
         //     root: null,
