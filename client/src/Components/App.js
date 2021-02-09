@@ -16,7 +16,7 @@ class App extends React.Component {
     super (props);
     this.state = {
       featured: 'thor',
-      loading: true,
+      loading: false,
       searchTerm: '',
       orderBy:'',
       offset: 0,
@@ -204,7 +204,7 @@ class App extends React.Component {
 
           
           <div ref={loadingRef => (this.loadingRef = loadingRef)}>
-            <Loading />
+            {this.state.loading ? <Loading /> : <div></div>}
           </div>
 
 
