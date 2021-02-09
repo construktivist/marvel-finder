@@ -29,6 +29,10 @@ class App extends React.Component {
   //Component will search for the featured hero after mounting.
   componentDidMount () {
 
+    if (!this.state.results) {
+      this.find();
+    }
+
     var options = {
       root: null,
       rootMargin: "0px",
@@ -39,7 +43,7 @@ class App extends React.Component {
     this.observer.observe(this.loadingRef);
   }
 
-  // Checks user scroll position and loads more comics when the user scrolls to the bottom.
+  //Checks user scroll position and loads more comics when the user scrolls to the bottom.
   handleObserver(entities, observer) {
     const currentY = entities[0].boundingClientRect.y;
     if (this.state.previousY > currentY ) {
