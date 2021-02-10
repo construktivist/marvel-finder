@@ -140,8 +140,20 @@ class App extends React.Component {
         });
       }
       else {
-        this.setState({ results:  [...this.state.results, ...response.data] });
-        this.setState({ loading: false });
+        
+        if (typeof response.data === 'object') {
+          this.setState({ 
+            results:  [...this.state.results, ...response.data],
+            loading: false
+           });
+
+        }
+        else {
+          this.setState({ 
+            results: response.data,
+            loading: false
+          })
+        }
 
       }
     })
