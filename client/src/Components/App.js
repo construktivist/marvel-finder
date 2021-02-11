@@ -15,12 +15,12 @@ class App extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      featured: 'thor',
+      featured: 'spider-man',
       loading: false,
       searchTerm: '',
       orderBy:'',
       offset: 0,
-      searchType: 'character',
+      searchType: 'comic',
       results: '',
       previousY: 0,
     }
@@ -75,8 +75,6 @@ class App extends React.Component {
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
-      console.log('FIND ' + this.state.searchTerm)
-      console.log('FIND ' + this.state.orderBy)
       this.search()
     });
   }
@@ -91,15 +89,12 @@ class App extends React.Component {
       searchTerm: newSearchTerm,
       orderBy: newOrderBy
     }, () => {
-      console.log('FIND ' + this.state.searchTerm)
-      console.log('FIND ' + this.state.orderBy)
       this.search()
     });
   }
 
   //Performs the specific GET request using request() based on the searchType and searchTerm.
   search = () => {
-    console.log('SEARCH TYPE ' + this.state.searchType);
     if (this.state.searchType === 'character') {
       this.request('/character', {
               params: {
@@ -107,8 +102,7 @@ class App extends React.Component {
               }
       });      
     }
-    else if (this.state.searchType === 'comic') {
-      console.log('APP SEARCH ' + this.state.orderBy);  
+    else if (this.state.searchType === 'comic') {  
         this.request('/comics', {
             params: {
                 titleStartsWith: this.state.searchTerm,
@@ -167,7 +161,6 @@ class App extends React.Component {
       this.setState({
         results: newResults
       })
-      console.log(this.state.results);
     }
 
     updateOffset = (newOffset) => {

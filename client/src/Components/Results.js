@@ -29,13 +29,11 @@ class Results extends React.Component {
         }
         // Renders Cover component if the searchType is equal to comic
         else if (this.props.searchType === 'comic' && typeof this.props.searchResults === 'object') {
-            console.log('TYPEOF ' + typeof this.props.searchResults);
-            console.log('SEARCH RESULTS ' + this.props.searchResults);
             return (
                 <div className="results row">
                     {this.props.searchResults.map((result, index) => 
                         <Cover
-                            key={result.id}
+                            key={result.title.replace(/[^A-Za-z]/g, '') + "-" + index}
                             id={result.title.replace(/[^A-Za-z]/g, '') + "-" + index}
                             marvel_id={result.id}
                             title={result.title}
