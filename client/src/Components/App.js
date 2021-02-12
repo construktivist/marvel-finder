@@ -225,7 +225,7 @@ class Nav extends React.Component {
     return (
       <div className="row">
           <nav>
-            <h1>Marvel Finder</h1>
+            <h1>Marvel Search</h1>
             <Link to="/characters">Characters</Link>
             <Link to="/comics">Comics</Link>
           </nav>
