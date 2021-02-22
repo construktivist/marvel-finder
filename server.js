@@ -5,7 +5,13 @@ const marvel_api = require('./controllers/api')
 const app = express();
 
 //API requests
-app.use('/', marvel_api)
+// app.use('/', marvel_api)
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 //PORT listen
 const PORT = process.env.PORT || 3001;
