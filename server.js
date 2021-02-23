@@ -5,8 +5,8 @@ const marvel_api = require('./controllers/api')
 
 const app = express();
 
-//API requests
-app.use('/', marvel_api)
+// //API requests
+// app.use('/', marvel_api)
 
 app.use(express.static(path.join(__dirname, 'build')));
 
