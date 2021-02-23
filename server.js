@@ -5,11 +5,11 @@ const marvel_api = require('./controllers/api')
 
 const app = express();
 
-// //API requests
-// app.use('/', marvel_api)
+//API requests
+app.use('/', marvel_api)
 
-app.use(express.static(path.join(__dirname, 'build')));
-
+// Direct server to use client/build as the view where the React app is located. 
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
