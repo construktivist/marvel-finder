@@ -1,0 +1,37 @@
+form {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.searchbox {
+    border: 0.5px solid black;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.search {
+    border: none;
+    width: 93%;
+    font-size: 2.2rem;
+    font-family: 'RobotoCondensed', 'Helvetica', 'sans-serif';
+}
+
+i.fa-search{
+   font-size: 1.8rem;
+   display: inline-block;
+   margin-right: 10px;
+}
+
+.m-select {
+    flex: none;
+    width: auto;
+    height: 30px;
+    line-height: initial;
+    border: none;
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: red;
+}

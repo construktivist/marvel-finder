@@ -1,0 +1,8 @@
+.creator {
+    display: flex;
+}
+
+.role {
+    margin-right: 5px;
+    font-weight: bold;
+}
