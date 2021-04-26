@@ -8,6 +8,8 @@ form {
     border-top: 0;
     border-left: 0;
     border-right: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .search {
@@ -19,8 +21,9 @@ form {
 
 i.fa-search{
    font-size: 1.8rem;
-   display: inline-block;
    margin-right: 10px;
+   margin-bottom: 5px;
+   align-self: flex-end;
 }
 
 .m-select {
@@ -35,3 +38,11 @@ i.fa-search{
     right: 0;
     color: red;
 }
+
+@media (min-width: 768px){
+
+    .searchbox {
+        flex-direction: row;
+    }
+
+} 

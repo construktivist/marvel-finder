@@ -40,7 +40,7 @@ class Search extends React.Component {
                 <div className="row">
                     <form onSubmit={this.handleSubmit}>
                         <div className="input-group">
-                            <div className="searchbox w-50">
+                            <div className="searchbox">
                                 <i className="fas fa-search col-xs-2"></i> 
                                 <input 
                                     id="search" 
