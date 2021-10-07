@@ -1,0 +1,11 @@
+.results.row {
+    margin: 0;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+
+    .results.row {
+        justify-content: space-between;
+    }
+}

@@ -6,3 +6,8 @@ nav a {
     margin-right: 20px;
     color: #e62429;
 }
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}

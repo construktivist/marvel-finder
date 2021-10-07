@@ -22,8 +22,8 @@ router.get('/character', (req, res) => {
     })
     .then(function (response) {
         let results;
-        console.log('RESPONSE data: ' + response.data.data.results);
-        console.log('RESPONSE length: ' + response.data.data.results.length);
+        // console.log('RESPONSE data: ' + response.data.data.results);
+        // console.log('RESPONSE length: ' + response.data.data.results.length);
         response.data.data.results.length > 0 ? results = response.data.data.results : results = 'Sorry! No search results were found.'
         res.send(results);
     })

@@ -167,7 +167,7 @@ class App extends React.Component {
         this.setState({
           offset: newOffset
         })
-        console.log(this.state.offset);
+        // console.log(this.state.offset);
         this.findMore(this.state.searchTerm, this.state.orderBy);
     }
 
