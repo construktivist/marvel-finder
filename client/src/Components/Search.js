@@ -24,7 +24,7 @@ class Search extends React.Component {
         this.setState({
             sort: event.target.value
         }, () => {
-            console.log('HANDLE SELECT ' + this.state.sort)
+            // console.log('HANDLE SELECT ' + this.state.sort)
             this.props.find(this.state.search, this.state.sort); 
         })
     }
